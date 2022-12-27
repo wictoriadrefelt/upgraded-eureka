@@ -1,6 +1,12 @@
+/* specific font */
+@font-face {
+  font-family: arcade;
+  src: url("../src/assets/ARCADECLASSIC.TTF");
+}
+
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 89px;
   line-height: 24px;
   font-weight: 400;
 

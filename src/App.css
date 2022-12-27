@@ -1,8 +1,15 @@
+/* specific font */
+@font-face {
+  font-family: arcade;
+  src: url("../src/assets/ARCADECLASSIC.TTF");
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: "arcade";
 }
 
 .logo {
