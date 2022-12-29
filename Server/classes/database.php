@@ -1,22 +1,5 @@
 <?php
 
-/* $servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "examen2";
-
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully"; 
-    }
-catch(PDOException $e)
-    {
-    echo "Connection failed: " . $e->getMessage();
-    }
- */
-
 class Database {
     
     private $db;
@@ -38,10 +21,11 @@ class Database {
 
     public function fetchAll($createInstanceFunction) { 
 
+        error_log('hjälp');
+
         $query = $this->db->prepare("SELECT * FROM " . $this->selectedTable . ";"); 
         $query->execute(); 
         $result = $query->fetchAll(PDO::FETCH_FUNC, $createInstanceFunction); 
-        error_log('hjälp');
 
         if($result) {
             return $result; 
