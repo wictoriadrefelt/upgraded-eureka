@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import Layout from "./components/Layout/Layout";
+import Layout from "./components/View/Layout";
 import { MantineProvider } from "@mantine/core";
 
 function App() {
