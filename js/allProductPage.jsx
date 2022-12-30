@@ -1,16 +1,15 @@
-import { openMenu, getAllCategories, burger } from "./renderHelper.js";
-import { makeRequest } from "./fetchHelper.js";
+import { makeRequest } from "./fetchHelper.jsx";
 
 async function onLoad() {
   getAllProducts();
-  console.log("startpage");
 }
 
 async function getAllProducts() {
   const action = "getAll";
+  console.log("startpage");
 
   let allProducts = await makeRequest(
-    `./../../Server/receivers/productReceiver.php?action=${action}`,
+    `http://localhost:8888/receivers/productReceiver.php?action=${action}`,
     "GET"
   );
 
@@ -41,7 +40,7 @@ async function renderProducts(list) {
     unitPrice.innerHTML = element.unitPrice + " €";
     let image = document.createElement("img");
     image.classList.add("collectionImage");
-    image.src = "./assets/" + element.image;
+    image.src = "./../src/assets/" + element.image;
 
     let avaliableUnits = document.createElement("p");
     avaliableUnits.classList.add("avaliableUnits");

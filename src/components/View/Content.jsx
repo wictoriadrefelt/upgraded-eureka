@@ -8,12 +8,13 @@ const Content = () => {
       sx={{
         display: "flex",
         justifyContent: "center",
-        backgroundColor: "black",
+        backgroundColor: "none",
       }}
     >
-      <Box sx={{ width: "100%", maxWidth: 1680, backgroundColor: "black" }}>
+      <Box sx={{ width: "100%", maxWidth: 1680, backgroundColor: "none" }}>
         <Routes>
-          <Route path="/" element={<Start />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/home/" element={<Start />} />
         </Routes>
       </Box>
     </Box>

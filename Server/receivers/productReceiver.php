@@ -1,16 +1,19 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: *");
 
 try {
 
     include_once("./../controllers/productController.php");
-    echo ("hejsan");
+
     if($_SERVER["REQUEST_METHOD"] == "GET") {
-        
+
         if($_GET["action"] == "getAll") {
-            
+
             $controller = new ProductController();
+            header('Content-Type: application/json; charset=utf-8');
             echo(json_encode($controller->getAll()));
-            error_log('hejksdnfnfoksd');
             exit;
 
         } else if($_GET["action"] == "getById") {
