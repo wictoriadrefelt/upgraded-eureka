@@ -66,7 +66,7 @@ export default function AppShellDemo() {
       </Box>
       <MediaQuery smallerThan="xs" styles={{ display: "none" }}>
         <Flex direction="row" justify="flex-end" p="sm" w={180}>
-          <Link hidden={opened} style={link} to="/login">
+          <Link hidden={opened} style={link} to="/home">
             Logga in
           </Link>
           <Link style={link} hidden={opened} to="/contact">

@@ -1,10 +1,15 @@
 // Makes a request to php
+
 export async function makeRequest(url, method, body) {
   try {
     let response = await fetch(url, {
       method,
       body,
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
+    console.log(typeof response);
     console.log(response);
     let result = await response.json();
     console.log(typeof result);
@@ -19,9 +24,11 @@ export async function makeRequest(url, method, body) {
 // Fetches all products
 export async function getAllProducts() {
   const action = "getAll";
-  console.log("maybe");
+  console.log(
+    `http://localhost:8888/receivers/productReceiver.php?action=${action}`
+  );
   let allProducts = await makeRequest(
-    `./../Server/receivers/productReceiver.php?action=${action}`,
+    `http://localhost:8888/receivers/productReceiver.php?action=${action}`,
     "GET"
   );
   console.log(allProducts);
@@ -29,7 +36,7 @@ export async function getAllProducts() {
 }
 
 // Fetch a product based on productId
-export async function getProductFromId(id) {
+/* export async function getProductFromId(id) {
   const action = "getById";
   console.log("baby");
   let specificProduct = await makeRequest(
@@ -39,3 +46,4 @@ export async function getProductFromId(id) {
   console.log(specificProduct);
   return specificProduct;
 }
+ */
