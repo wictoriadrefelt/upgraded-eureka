@@ -1,5 +1,9 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: *");
+
 class Database {
     
     private $db;
@@ -17,7 +21,6 @@ class Database {
         $this->selectedTable = $table; 
         $this->selectedClass = $class; 
     }
-
 
     public function fetchAll($createInstanceFunction) { 
 

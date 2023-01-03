@@ -1,4 +1,6 @@
 GET http://localhost:8888/receivers/productReceiver.php?action=getAll
 Content-Type: application/json
 
+GET http://localhost:8888/product.php?action=getAll
+Content-Type: application/json
 //GET http://localhost:8888/receivers/productReceiver.php?action=getById

@@ -1,5 +1,6 @@
 import { Text, Title, Image, Box, Button, Flex } from "@mantine/core";
 import { Link } from "react-router-dom";
+
 const Start = () => {
   return (
     <>
