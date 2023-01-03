@@ -12,8 +12,7 @@ async function getAllProducts() {
     `http://localhost:8888/receivers/productReceiver.php?action=${action}`,
     "GET"
   );
-
-  renderProducts(allProducts);
+  console.log(allProducts);
 }
 
 async function renderProducts(list) {
