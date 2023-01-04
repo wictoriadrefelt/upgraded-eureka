@@ -3,11 +3,12 @@ import Start from "../pages/Start";
 import Landing from "../pages/Landing";
 import { Box } from "@mantine/core";
 import Product from "../pages/Product";
+import Products from "../pages/ProductCard";
 
 const Content = () => {
   return (
     <>
-      <Product />
+      <Products />
       <Box
         sx={{
           display: "flex",
