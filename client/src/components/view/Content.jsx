@@ -5,10 +5,17 @@ import { Box } from "@mantine/core";
 import Product from "../pages/Product";
 import Products from "../pages/ProductCard";
 
+const product = {
+  _id: "12",
+  name: "white",
+  price: "2000",
+  image: "bahe.jpg",
+};
+
 const Content = () => {
   return (
     <>
-      <Products />
+      <Product product={product} />
       <Box
         sx={{
           display: "flex",
