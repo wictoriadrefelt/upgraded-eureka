@@ -1,22 +1,9 @@
-import { AppShell } from "@mantine/core";
 import Header from "./Header";
 import Content from "./Content";
+import Products from "../pages/Products";
 
 const Layout = () => {
-  return (
-    <AppShell
-      sx={{ backgroundColor: "white" }}
-      styles={{
-        body: {
-          width: "100vw",
-        },
-      }}
-      header={<Header />}
-      padding={16}
-    >
-      <Content />
-    </AppShell>
-  );
+  return <Content />;
 };
 
 export default Layout;

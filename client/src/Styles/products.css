@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #000;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.stars,
+.twinkleMask,
+.twinkleMask2,
+.clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(100vh - 100px);
+  display: block;
+  margin-top: 100px;
+}
+
+.stars {
+  background: #000 url("https://wolf.drjm.co.uk/nightsky/stars.jpg") repeat top
+    center;
+  z-index: 0;
+}
+
+.twinkleMask {
+  background: transparent
+    url("https://wolf.drjm.co.uk/nightsky/twinklemask.png") repeat top center;
+  z-index: 1;
+  animation: twinkleFrames 700s linear infinite;
+}
+
+.twinkleMask2 {
+  background: transparent
+    url("https://wolf.drjm.co.uk/nightsky/twinkleMask2.png") repeat top center;
+  z-index: 2;
+  height: 200%;
+  animation: twinkleFrames2 300s linear infinite;
+}
+
+.clouds {
+  background: transparent url("https://wolf.drjm.co.uk/nightsky/clouds.png")
+    repeat top center;
+  z-index: 3;
+  height: 150%;
+  animation: cloudsFrames 300s linear infinite;
+}
+
+header {
+  height: 100px;
+  background-color: black;
+  z-index: 9;
+  color: white;
+}
+
+.container {
+  height: calc(100vh - 100px);
+}
+
+.sidepanel {
+  z-index: 8;
+  position: absolute;
+  position: fixed;
+  width: -moz-fit-content;
+  width: fit-content;
+  width: 15%;
+  height: 100%;
+  min-width: 100px;
+}
+
+.left {
+  left: 0;
+  top: 100px;
+}
+
+.right {
+  right: 0;
+  top: 100px;
+}
+
+.sideImg {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  min-width: 100px;
+}
+
+.content {
+  width: 60%;
+  margin: auto;
+  min-height: 100vh;
+}
