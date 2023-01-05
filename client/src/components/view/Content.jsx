@@ -5,6 +5,13 @@ import Product from "../pages/Product";
 import Products from "../pages/Products";
 import Contact from "../pages/ContactUs";
 
+const product = {
+  _id: "12",
+  name: "white",
+  price: "2000",
+  image: "bahe.jpg",
+};
+
 const Content = () => {
   return (
     <>
