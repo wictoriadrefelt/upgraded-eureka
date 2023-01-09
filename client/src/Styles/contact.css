@@ -3,12 +3,10 @@ main {
   width: 100vw;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
 
 .containerDiv {
@@ -61,7 +59,7 @@ main {
 .right-side .input-box {
   height: 40px;
   width: 100%;
-  margin: 20px 0;
+  margin: 30px 0;
 }
 .right-side .input-box input,
 .right-side .input-box textarea {
@@ -107,6 +105,14 @@ main {
 .button {
   display: flex;
   justify-content: center;
+}
+
+.sendMsgBtn {
+  border: dashed;
+  background-color: none;
+  color: white;
+  background-color: none !important;
+  font-size: 12px !important;
 }
 
 @media (max-width: 820px) {
