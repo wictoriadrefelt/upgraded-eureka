@@ -1,7 +1,8 @@
 import React from "react";
 import "../../Styles/products.css";
+import { Link } from "react-router-dom";
 
-const Products = () => {
+const Products = (product) => {
   {
     return (
       <>
@@ -20,6 +21,10 @@ const Products = () => {
               alt=""
             />
             <div className="content"></div>
+            <Link to={`/product/${product._id}`}>
+              <p>{product.name}</p>
+              <p>{product.price}</p>
+            </Link>
           </div>
           <div className="stars"></div>
           <div className="twinkleMask"></div>
