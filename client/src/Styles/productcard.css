@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "My Font";
+  src: url("./src/assets/Fonts/PokemonGb-RAeo (2).ttf") format("truetype");
+}
+
+* {
+  font-family: "My Font";
+}
+
+main {
+  margin: 100px 0 0 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background: url("./src/assets/bg/NSwitchDS_ArcadeArchivesIceClimber_01.jpeg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  /* position: fixed; */
+}
+
+.container {
+  width: 70%;
+  margin: auto;
+}
+
+.singlepageDiv {
+  width: 100%;
+  /* height: auto; */
+  display: flex;
+  margin-top: 70px;
+  /* min-height: 300px; */
+  align-items: center;
+  background-color: black;
+  padding: 20px;
+}
+
+.imgDiv {
+  max-width: 40%;
+}
+
+.singleImg {
+  width: 90%;
+}
+
+.singleProductInfo {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+  width: 60%;
+  gap: 20px;
+}
+
+.padding-and-border {
+  border: solid;
+  border-style: double;
+  border-color: black;
+  border-width: 3px;
+  padding: 5px 10px;
+  margin: 2px;
+}
+
+.singletitle {
+  font-size: 16px;
+}
+
+.singleDesc {
+  font-size: 12px;
+  min-height: 100px;
+}
+
+.singlePrice {
+  font-size: 12px;
+}
+
+.inline-block {
+  width: fit-content;
+}
+
+.bg {
+  background-color: rgba(246, 246, 246, 255);
+}
+
+.flex-justify-space {
+  display: flex;
+  justify-content: space-between;
+}
