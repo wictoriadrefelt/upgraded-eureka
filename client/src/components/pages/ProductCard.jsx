@@ -1,7 +1,8 @@
 import { getProducts } from "../../actions/productAction";
 import React from "react";
+import "../../Styles/productcard.css";
 
-const ProductCard = ({ data }) => {
+const ProductCard = () => {
   return (
     <>
       <main>

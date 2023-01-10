@@ -19,8 +19,8 @@ const Products = () => {
               src="./src/assets/Bg/317251088_2363217130523164_5796761618442374814_n.png"
               alt=""
             />
-            <div className="content"></div>
           </div>
+          <div className="content"></div>
           <div className="stars"></div>
           <div className="twinkleMask"></div>
           <div className="twinkleMask2"></div>
