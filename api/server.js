@@ -1,7 +1,7 @@
 const { connect } = require("http2");
 const app = require("./app");
 
-const PORT = 3001;
+const PORT = 3002;
 
 const connection = require("./config/db");
 
