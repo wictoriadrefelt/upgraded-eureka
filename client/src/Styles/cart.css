@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* background: #000; */
+  height: 100vh;
+  overflow: hidden;
+}
+
+.cartPageMain {
+  width: 100vw;
+  height: 100vh;
+  height: calc(100vh - 100px);
+}
+
+.cartContainer {
+  width: 65%;
+  height: 400px;
+  z-index: 5;
+  border: solid;
+  border-color: white;
+  position: absolute;
+  left: 1vw;
+  right: 1vw;
+  margin: auto;
+  top: 25%;
+  background-image: url("./src/assets/bg/marioBg.jpeg");
+  background-size: 100%;
+  display: flex;
+}
+
+.stars,
+.twinkleMask,
+.twinkleMask2,
+.clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(100vh - 100px);
+  display: block;
+  margin-top: 100px;
+}
+
+.stars {
+  background: #000 url("https://wolf.drjm.co.uk/nightsky/stars.jpg") repeat top
+    center;
+  z-index: 0;
+}
+
+.twinkleMask {
+  background: transparent
+    url("https://wolf.drjm.co.uk/nightsky/twinklemask.png") repeat top center;
+  z-index: 1;
+  animation: twinkleFrames 700s linear infinite;
+}
+
+.twinkleMask2 {
+  background: transparent
+    url("https://wolf.drjm.co.uk/nightsky/twinkleMask2.png") repeat top center;
+  z-index: 2;
+  height: 200%;
+  animation: twinkleFrames2 300s linear infinite;
+}
+
+.clouds {
+  background: transparent url("https://wolf.drjm.co.uk/nightsky/clouds.png")
+    repeat top center;
+  z-index: 3;
+  height: 150%;
+  animation: cloudsFrames 300s linear infinite;
+}
+
+.rightFooterImg {
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  right: 1vw;
+}
+
+.leftFooterImg {
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  left: 1vw;
+}
+
+.imgLeft {
+  min-height: 25vh;
+  max-height: 35vh;
+  max-width: 15vw;
+}
+
+.imgRight {
+  min-height: 20vh;
+  max-height: 30vh;
+  max-width: 15vw;
+}
+
+.toCheckout {
+  position: absolute;
+  z-index: 6;
+  left: 1vw;
+  right: 1vw;
+  margin: auto;
+  bottom: 40;
+  top: 120%;
+  text-align: center;
+  background-color: black;
+  padding: 20px;
+  color: coral;
+}
+
+.toCheckout:hover {
+  cursor: pointer;
+}
+
+.checkoutBtn {
+  font-size: 28px;
+}
+
+.checkoutClickMe {
+  font-size: 15px;
+}
+
+.cartContent {
+  width: 60%;
+  background-color: black;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cartTitle {
+  margin: auto;
+  margin-top: 5px;
+  font-size: 20px;
+  color: coral;
+}
+
+@media (max-width: 800px) {
+  .cartContent {
+    width: 100%;
+  }
+  .cartTitle {
+    font-size: 16px;
+  }
+  .checkoutBtn {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .cartContainer {
+    width: 90%;
+    margin: auto;
+  }
+  .cartTitle {
+    font-size: 12px;
+  }
+  .checkoutBtn {
+    font-size: 16px;
+  }
+}
