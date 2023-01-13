@@ -4,6 +4,7 @@ import Contact from "../pages/ContactUs";
 import ProductDetails from "../pages/ProductDetails";
 import Products from "../pages/Products";
 import Cart from "../pages/Cart";
+import Header from "../view/Header";
 
 const Content = () => {
   return (
@@ -14,6 +15,7 @@ const Content = () => {
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/header" element={<Header />} />
       </Routes>
     </>
   );
