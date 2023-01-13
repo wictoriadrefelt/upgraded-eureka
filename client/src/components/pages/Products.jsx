@@ -11,7 +11,7 @@ const Products = () => {
   const { products } = useSelector((state) => state.products);
   useEffect(() => {
     dispatch(getProducts());
-  }, [dispatch]);
+  }, []);
   return (
     <>
       {/*  <div className="container">
