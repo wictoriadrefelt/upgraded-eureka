@@ -19,7 +19,7 @@ exports.getAllProducts = async (req, res) => {
 };
 
 exports.getSingleProduct = async (req, res, next) => {
-  const product = await Product.findById();
+  const product = await Product.findById(req.params.id);
   if (!product) {
     return res.status(500).json({
       success: false,
