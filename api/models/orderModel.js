@@ -21,6 +21,11 @@ const OrderSchema = mongoose.Schema({
       },
     },
   ],
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
+    required: false,
+  },
 
   //TODO --------------- DESSA BÖR VARA REQUIRED OCH HA ETT DEFAULT VALUE
   paymentInfo: {
