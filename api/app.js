@@ -11,17 +11,19 @@ const bodyParser = require("body-parser");
 app.use(express.json());
 app.use(cors());
 
-app.use(bodyParser.urlencoded({ extended: false }));
+// COME BACK TO THIS FOR AUTH
+
+/* app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(auth.initialize());
+//app.use(auth.initialize());
 // Passport Config
-passport.use(new localStrategy(User.authenticate()));
+//passport.use(new localStrategy(User.authenticate()));
 app.use(passport.initialize());
 app.use(passport.session());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use(authRoute);
+app.use(authRoute); */
 
 const product = require("./routes/productRoute");
 const order = require("./routes/orderRoute");

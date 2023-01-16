@@ -1,4 +1,4 @@
-const passport = require("passport");
+let passport = require("passport");
 const passportJwt = require("passport-jwt");
 const User = require("../models/userModel");
 const config = require("../config.js");
