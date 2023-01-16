@@ -76,7 +76,12 @@ const Cart = () => {
                     ))}
 
                   {/*PRICE FOR TOTAL CART*/}
-                  <p>{`600`}</p>
+                  <p>
+                    {cartItems.reduce(
+                      (acc, item) => acc + item.quantity * item.price,
+                      0
+                    )}
+                  </p>
                 </div>
                 <div className="toCheckout">
                   <p className="checkoutBtn">Insert Coins To Begin</p>
