@@ -1,13 +1,14 @@
 import "../../Styles/header.css";
 import React, { useRef, useEffect } from "react";
 import logo from "../../assets/Bg/image.png";
-import lives from "../../assets/Bg/ice-climbers-break.png";
 
 const Header = () => {
   return (
     <>
       <div className="headerContainer">
         <div className="lifeDiv headerDiv">
+          <img className="lives" src={lives} alt="" />
+          <img className="lives" src={lives} alt="" />
           <img className="lives" src={lives} alt="" />
         </div>
         <div className="logoDiv headerDiv">
