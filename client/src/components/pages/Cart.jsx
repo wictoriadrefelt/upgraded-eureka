@@ -1,7 +1,13 @@
 import React from "react";
 import "../../Styles/cart.css";
+import CartItemCard from "./CartItemCard";
 
 const Cart = () => {
+  const item = {
+    product: "productID",
+    price: 100,
+    name: "blubb",
+  };
   {
     return (
       <>
@@ -9,6 +15,7 @@ const Cart = () => {
           <div className="cartContainer">
             <div className="cartContent">
               <h2 className="cartTitle">Kundvagn</h2>
+              <CartItemCard item={item} />
             </div>
             <div className="toCheckout">
               <p className="checkoutBtn">Insert Coins To Begin</p>
