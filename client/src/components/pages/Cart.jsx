@@ -2,26 +2,31 @@ import React from "react";
 import "../../Styles/cart.css";
 import CartItemCard from "./CartItemCard";
 import { useSelector, useDispatch } from "react-redux";
-import { addItemsToCart } from "../../actions/cartAction";
+import { addItemsToCart, removeItemFromCart } from "../../actions/cartAction";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
 
-  const increaseQuantity = (id, quantity, stock) => {
+  const increaseQuantity = (id, quantity, unit) => {
     const newQty = quantity + 1;
-    if (stock <= quantity) {
+    if (unit <= quantity) {
+      return;
+    } else {
+      dispatch(addItemsToCart(id, newQty));
+    }
+  };
+
+  const decreaseQuantity = (id, quantity, unit) => {
+    const newQty = quantity - 1;
+    if (unit <= quantity || 1 > quantity) {
       return;
     }
     dispatch(addItemsToCart(id, newQty));
   };
 
-  const decreaseQuantity = (id, quantity, stock) => {
-    const newQty = quantity - 1;
-    if (stock <= quantity || 1 > quantity) {
-      return;
-    }
-    dispatch(addItemsToCart(id, newQty));
+  const deleteItem = (id) => {
+    dispatch(removeItemFromCart(id));
   };
   {
     return (
@@ -33,7 +38,11 @@ const Cart = () => {
               {cartItems &&
                 cartItems.map((item) => (
                   <>
-                    <CartItemCard item={item} />
+                    <CartItemCard
+                      item={item}
+                      key={item._id}
+                      deleteItem={deleteItem}
+                    />
                     <button
                       onClick={() =>
                         decreaseQuantity(item.product, item.quantity, item.unit)
