@@ -1,0 +1,4 @@
+.container--product {
+  overflow-y: auto;
+  height: 100vh;
+}

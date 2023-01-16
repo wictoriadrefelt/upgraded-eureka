@@ -1,8 +1,12 @@
 import { getProducts } from "../../actions/productAction";
 import React from "react";
 import { Link } from "react";
+import "../../Styles/productCard.css";
+import AddToCartButton from "../buttons/cartbutton";
 
 const ProductCard = ({ product }) => {
+  console.log(typeof product.image);
+  console.log(product.image);
   return (
     <>
       {/* <div className="container">
@@ -14,10 +18,21 @@ const ProductCard = ({ product }) => {
             <span className="inline-block bg">
               <div className="container" id="container"> */}
       <div className="productCard">
-        <p>{product.name}</p>
-        <div></div>
-        <span>{product.price}</span>
+        <div className="imgDiv">
+          {/* <img src="data: image/gif;base64,(base 64 image data)" /> */}
+          <img src={product.image} alt={product.image} />
+        </div>
+        <div className="infoDiv">
+          <h3 className="name">{product.name}</h3>
+          <p className="description">{product.desc}</p>
+          <div className="buyOptions">
+            <AddToCartButton productId={product.id} initialQuantity={1} />
+
+            <span className="price">{product.price}</span>
+          </div>
+        </div>
       </div>
+
       {/* </div>
             </span>
             <div className="bg">
