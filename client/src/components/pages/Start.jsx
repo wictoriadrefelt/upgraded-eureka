@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import Products from "../pages/Products";
 import ProductCard from "./ProductCard";
 import "../../Styles/p.css";
+import StartpageLayout from "../view/StartpageLayout";
+import Header from "../view/Header";
 
 const Start = () => {
   const dispatch = useDispatch();
@@ -17,12 +19,16 @@ const Start = () => {
   console.log(products);
   return (
     <>
-      <div className="container--product" id="container--product">
-        {products &&
-          products.map((product) => (
-            <ProductCard key={product._id} product={product} />
-          ))}
-      </div>
+      <Header></Header>
+      <main>
+        <div className="container--product" id="container--product">
+          {products &&
+            products.map((product) => (
+              <ProductCard key={product._id} product={product} />
+            ))}
+        </div>
+        <StartpageLayout></StartpageLayout>
+      </main>
     </>
   );
 };

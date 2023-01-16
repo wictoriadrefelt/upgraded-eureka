@@ -1,4 +1,15 @@
 .container--product {
+  position: absolute;
+  z-index: 10;
   overflow-y: auto;
   height: 100vh;
+  top: 100px;
+  left: 1vw;
+  right: 1vw;
+}
+
+main {
+  width: 100vw;
+  height: calc(100vh - 100px);
+  margin-top: 100px;
 }

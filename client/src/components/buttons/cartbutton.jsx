@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../../Styles/cartbutton.css";
 
 function AddToCartButton({ productId, initialQuantity }) {
   const [quantity, setQuantity] = useState(initialQuantity || 1);

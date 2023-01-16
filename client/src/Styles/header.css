@@ -1,7 +1,7 @@
 .headerContainer {
   width: 100vw;
   height: 100px;
-  background-color: red;
+  background-color: rgba(17, 17, 17, 255);
   color: white;
   /* z-index: 9; */
   position: fixed;

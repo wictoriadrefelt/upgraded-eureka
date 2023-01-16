@@ -19,8 +19,7 @@ const ProductCard = ({ product }) => {
               <div className="container" id="container"> */}
       <div className="productCard">
         <div className="imgDiv">
-          {/* <img src="data: image/gif;base64,(base 64 image data)" /> */}
-          <img src={product.image} alt={product.image} />
+          <img className="productImg" src={product.image} alt={product.image} />
         </div>
         <div className="infoDiv">
           <h3 className="name">{product.name}</h3>

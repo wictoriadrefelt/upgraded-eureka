@@ -29,7 +29,7 @@ const Contact = () => {
 
     return (
       <>
-        <main>
+        <main className="cartpageMain">
           <div className="container">
             <div className="stars"></div>
             <div className="twinkleMask"></div>
