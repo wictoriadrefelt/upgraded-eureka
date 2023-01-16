@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Link } from "react";
 import "../../Styles/cart.css";
 import CartItemCard from "./CartItemCard";
 import { useSelector, useDispatch } from "react-redux";
@@ -31,65 +31,79 @@ const Cart = () => {
   {
     return (
       <>
-        <div className="cartPageMain">
-          <div className="cartContainer">
-            <div className="cartContent">
-              <h2 className="cartTitle">Kundvagn</h2>
-              {cartItems &&
-                cartItems.map((item) => (
-                  <>
-                    <CartItemCard
-                      item={item}
-                      key={item._id}
-                      deleteItem={deleteItem}
-                    />
-                    <button
-                      onClick={() =>
-                        decreaseQuantity(item.product, item.quantity, item.unit)
-                      }
-                    >
-                      -
-                    </button>
-                    <input type="number" value={item.quantity} readOnly />
-                    <button
-                      onClick={() =>
-                        increaseQuantity(item.product, item.quantity, item.unit)
-                      }
-                    >
-                      +
-                    </button>
-                    {/* PRICE FOR ONE PRODUCT  */}
-                    <p>{item.price * item.quantity}</p>
-                  </>
-                ))}
+        {cartItems.length === 0 ? (
+          <>
+            <div className="emptyCart">"Nothing to see here"</div>
+            <Link to="/products">View our amazing collection</Link>
+          </>
+        ) : (
+          /// PLACE DIVS FOR EMPTY CART HERE AFTER LINE 35
+          <>
+            <div className="cartPageMain">
+              <div className="cartContainer">
+                <div className="cartContent">
+                  <h2 className="cartTitle">Kundvagn</h2>
+                  {cartItems &&
+                    cartItems.map((item) => (
+                      <div key={item.product}>
+                        <CartItemCard item={item} deleteItem={deleteItem} />
+                        <button
+                          onClick={() =>
+                            decreaseQuantity(
+                              item.product,
+                              item.quantity,
+                              item.unit
+                            )
+                          }
+                        >
+                          -
+                        </button>
+                        <input type="number" value={item.quantity} readOnly />
+                        <button
+                          onClick={() =>
+                            increaseQuantity(
+                              item.product,
+                              item.quantity,
+                              item.unit
+                            )
+                          }
+                        >
+                          +
+                        </button>
+                        {/* PRICE FOR ONE PRODUCT  */}
+                        <p>{item.price * item.quantity}</p>
+                      </div>
+                    ))}
 
-              {/*PRICE FOR TOTAL CART*/}
-              <p>{`600`}</p>
+                  {/*PRICE FOR TOTAL CART*/}
+                  <p>{`600`}</p>
+                </div>
+                <div className="toCheckout">
+                  <p className="checkoutBtn">Insert Coins To Begin</p>
+                  <br />
+                  <p className="checkoutClickMe">...Click here...</p>
+                </div>
+              </div>
+              <div className="stars"></div>
+              <div className="twinkleMask"></div>
+              <div className="twinkleMask2"></div>
+              <div className="leftFooterImg">
+                <img
+                  className="imgLeft"
+                  src="./src/assets/bg/tallpipe.png"
+                  alt="pipe"
+                />
+              </div>
+              <div className="rightFooterImg">
+                <img
+                  className="imgRight"
+                  src="./src/assets/bg/shortpipe.png"
+                  alt=""
+                />
+              </div>
             </div>
-            <div className="toCheckout">
-              <p className="checkoutBtn">Insert Coins To Begin</p>
-              <br />
-              <p className="checkoutClickMe">...Click here...</p>
-            </div>
-          </div>
-          <div className="stars"></div>
-          <div className="twinkleMask"></div>
-          <div className="twinkleMask2"></div>
-          <div className="leftFooterImg">
-            <img
-              className="imgLeft"
-              src="./src/assets/bg/tallpipe.png"
-              alt="pipe"
-            />
-          </div>
-          <div className="rightFooterImg">
-            <img
-              className="imgRight"
-              src="./src/assets/bg/shortpipe.png"
-              alt=""
-            />
-          </div>
-        </div>
+          </>
+        )}
       </>
     );
   }
