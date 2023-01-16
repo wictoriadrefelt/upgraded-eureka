@@ -97,3 +97,9 @@ header {
   margin: auto;
   min-height: 100vh;
 }
+
+@media (max-width: 550px) {
+  .sidepanel {
+    display: none;
+  }
+}

@@ -1,11 +1,11 @@
 /* specific font */
-@font-face {
+/* @font-face {
   font-family: arcade;
   src: url("../src/assets/ARCADECLASSIC.TTF");
 }
 
 :root {
-  /*   font-family: "Courier New", Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
   font-size: 89px;
   line-height: 24px;
   font-weight: 400;
@@ -18,7 +18,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%; */
+  -webkit-text-size-adjust: 100%; 
 }
 
 a {
@@ -62,7 +62,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* @media (prefers-color-scheme: light) {
+ @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -74,4 +74,5 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
  */

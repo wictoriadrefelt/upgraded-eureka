@@ -7,9 +7,9 @@ const Header = () => {
     <>
       <div className="headerContainer">
         <div className="lifeDiv headerDiv">
+          {/*  <img className="lives" src={lives} alt="" />
           <img className="lives" src={lives} alt="" />
-          <img className="lives" src={lives} alt="" />
-          <img className="lives" src={lives} alt="" />
+          <img className="lives" src={lives} alt="" /> */}
         </div>
         <div className="logoDiv headerDiv">
           <img className="logoImg" src={logo} alt="" />
