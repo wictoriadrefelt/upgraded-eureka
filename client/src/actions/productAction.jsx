@@ -9,7 +9,7 @@ import {
   CLEAR_ERRORS,
 } from "../constants/productActionTypes";
 
-// Get Products Details
+// Add items to cart
 export const getProducts = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_PRODUCTS });

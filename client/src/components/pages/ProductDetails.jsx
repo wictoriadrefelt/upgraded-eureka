@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getSingleProduct } from "../../actions/productAction";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { addItemsToCart } from "../../actions/cartAction";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -29,6 +30,11 @@ const ProductDetails = () => {
     console.log(qty);
   };
 
+  const addToCartHandler = () => {
+    dispatch(addItemsToCart(id, quantity));
+    console.log("product added");
+  };
+
   const { product } = useSelector((state) => state.singleProduct);
   useEffect(() => {
     dispatch(getSingleProduct(id));
@@ -40,7 +46,7 @@ const ProductDetails = () => {
       <button onClick={decreseQuantity}>-</button>
       <input value={quantity} type="number" />
       <button onClick={increaseQuantity}>+</button>
-      <button>Add to Cart</button>
+      <button onClick={addToCartHandler}>Add to Cart</button>
       Avaliable:
       <p className={product.unit < 1 ? "black" : "white"}>
         {product.unit < 1 ? "Not in stock" : "In stock"}
