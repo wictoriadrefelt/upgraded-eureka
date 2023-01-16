@@ -32,9 +32,11 @@ userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     next();
   }
-  this.password = await bcrypt.hash(this.password, 10);
+  this.password = bcrypt.hash(this.password, 10);
 });
 
 userSchema.methods.getJWTToken = function () {
   return jwt.sign({ id: this._id }, process.env.VITE_SECRET_KEY);
 };
+
+module.exports = mongoose.Schema("user", userSchema);

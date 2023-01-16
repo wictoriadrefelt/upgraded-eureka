@@ -21,7 +21,7 @@ const ProductDetails = () => {
     console.log(qty);
   };
 
-  const decreseQuantity = () => {
+  const decreaseQuantity = () => {
     if (1 >= quantity) {
       return;
     }
@@ -43,8 +43,8 @@ const ProductDetails = () => {
   return (
     <div>
       {product.name}
-      <button onClick={decreseQuantity}>-</button>
-      <input value={quantity} type="number" />
+      <button onClick={decreaseQuantity}>-</button>
+      <input value={quantity} type="number" readOnly />
       <button onClick={increaseQuantity}>+</button>
       <button onClick={addToCartHandler}>Add to Cart</button>
       Avaliable:

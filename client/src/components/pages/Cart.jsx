@@ -28,6 +28,8 @@ const Cart = () => {
   const deleteItem = (id) => {
     dispatch(removeItemFromCart(id));
   };
+
+  const checkoutHander = () => {};
   {
     return (
       <>
