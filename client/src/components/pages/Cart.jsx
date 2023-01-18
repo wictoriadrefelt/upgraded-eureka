@@ -47,33 +47,46 @@ const Cart = () => {
                   <h2 className="cartTitle">Kundvagn</h2>
                   {cartItems &&
                     cartItems.map((item) => (
-                      <div key={item.product}>
+                      <div className="cartItem" key={item.product}>
                         <CartItemCard item={item} deleteItem={deleteItem} />
-                        <button
-                          onClick={() =>
-                            decreaseQuantity(
-                              item.product,
-                              item.quantity,
-                              item.unit
-                            )
-                          }
-                        >
-                          -
-                        </button>
-                        <input type="number" value={item.quantity} readOnly />
-                        <button
-                          onClick={() =>
-                            increaseQuantity(
-                              item.product,
-                              item.quantity,
-                              item.unit
-                            )
-                          }
-                        >
-                          +
-                        </button>
+                        <div className="cartDetails">
+                          <div className="btns">
+                            <button
+                              className="amount add"
+                              onClick={() =>
+                                decreaseQuantity(
+                                  item.product,
+                                  item.quantity,
+                                  item.unit
+                                )
+                              }
+                            >
+                              -
+                            </button>
+                            <input
+                              className="amountNumber"
+                              type="number"
+                              value={item.quantity}
+                              readOnly
+                            />
+                            <button
+                              className="amount decrease"
+                              onClick={() =>
+                                increaseQuantity(
+                                  item.product,
+                                  item.quantity,
+                                  item.unit
+                                )
+                              }
+                            >
+                              +
+                            </button>
+                          </div>
+                          <div className="itemPrice">
+                            <p>{item.price * item.quantity}</p>
+                          </div>
+                        </div>
                         {/* PRICE FOR ONE PRODUCT  */}
-                        <p>{item.price * item.quantity}</p>
                       </div>
                     ))}
 
