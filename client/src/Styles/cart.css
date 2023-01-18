@@ -3,12 +3,6 @@
   padding: 0;
 }
 
-body {
-  /* background: #000; */
-  height: 100vh;
-  overflow: hidden;
-}
-
 .cartPageMain {
   width: 100vw;
   height: 100vh;
@@ -29,6 +23,14 @@ body {
   background-image: url("./src/assets/bg/marioBg.jpeg");
   background-size: 100%;
   display: flex;
+}
+
+.btns {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
 }
 
 .stars,
@@ -136,10 +138,35 @@ body {
 }
 
 .cartTitle {
-  margin: auto;
-  margin-top: 5px;
+  margin: 15px auto;
   font-size: 20px;
   color: coral;
+}
+
+.amount {
+  border: dashed;
+  border-color: white;
+  background-color: transparent;
+  padding: 6px;
+}
+
+.amountNumber {
+  background-color: transparent;
+  border: none;
+  margin: 10px;
+  width: 20px;
+}
+
+.cartDetails {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  align-items: center;
+  margin-left: 10%;
+}
+
+.cartImg {
+  height: 60px;
 }
 
 @media (max-width: 800px) {
