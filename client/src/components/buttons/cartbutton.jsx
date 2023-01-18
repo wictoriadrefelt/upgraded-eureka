@@ -15,7 +15,6 @@ function AddToCartButton({ productId, initialQuantity }) {
       <input
         type="number"
         value={quantity}
-        readOnly
         onChange={(e) => setQuantity(e.target.value)}
       />
     </div>

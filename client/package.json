@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "vite --port $PORT"
   },
   "dependencies": {
     "@mantine/core": "^5.10.0",

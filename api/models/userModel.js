@@ -3,7 +3,6 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
-const process = require("process");
 require("dotenv").config();
 
 const userSchema = mongoose.Schema({
@@ -35,8 +34,4 @@ userSchema.pre("save", async function (next) {
   this.password = bcrypt.hash(this.password, 10);
 });
 
-userSchema.methods.getJWTToken = function () {
-  return jwt.sign({ id: this._id }, process.env.VITE_SECRET_KEY);
-};
-
-module.exports = mongoose.Schema("user", userSchema);
+module.exports = mongoose.model("User", userSchema);

@@ -6,7 +6,14 @@ const auth = require("./middleware/auth.js");
 const passport = require("passport");
 const localStrategy = require("passport-local");
 const User = require("./models/userModel");
+const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+const path = require("path");
+const dotenv = require("dotenv");
+
+app.use(express.json());
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.json());
 app.use(cors());
@@ -25,10 +32,21 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use(authRoute); */
 
+/* app.use(express.static(path.join(__dirname, "../client/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));
+}); */
+
+if (process.env.NODE_ENV !== "PRODUCTION") {
+  dotenv.config({ path: path.resolve(__dirname, "./config/.env") });
+}
+
 const product = require("./routes/productRoute");
 const order = require("./routes/orderRoute");
+//const user = require("./routes/userRoute");
 
 app.use("/api/v1", product);
 app.use("/api/v1", order);
-
+//app.use("api/user", user);
 module.exports = app;
