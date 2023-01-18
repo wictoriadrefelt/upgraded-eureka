@@ -19,7 +19,7 @@ const Start = () => {
   console.log(products);
   return (
     <>
-      <Header></Header>
+      <Header />
       <main>
         <div className="container--product" id="container--product">
           {products &&
