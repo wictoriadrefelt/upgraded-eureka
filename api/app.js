@@ -38,15 +38,16 @@ app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));
 }); */
 
-if (process.env.NODE_ENV !== "PRODUCTION") {
+/* if (process.env.NODE_ENV !== "PRODUCTION") {
   dotenv.config({ path: path.resolve(__dirname, "./config/.env") });
-}
+} */
 
 const product = require("./routes/productRoute");
 const order = require("./routes/orderRoute");
+const user = require("./routes/userRoute");
 //const user = require("./routes/userRoute");
 
 app.use("/api/v1", product);
 app.use("/api/v1", order);
-//app.use("api/user", user);
+app.use("/api/v1", user);
 module.exports = app;
