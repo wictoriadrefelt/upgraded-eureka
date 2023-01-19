@@ -1,17 +1,6 @@
 const User = require("../models/userModel");
 const ErrorHandler = require("../utils/errorhandler");
 
-/* exports.registerUser = async (req, res, next) => {
-  const { firstName, lastName, email, password } = req.body;
-
-  const user = await User.create({ firstName, lastName, email, password });
-
-  res.status(200).json({
-    success: true,
-    user,
-  });
-}; */
-
 // user registration
 exports.registersUser = async (req, res, next) => {
   const user = await User.create(req.body);
@@ -39,22 +28,20 @@ exports.loginUser = async (req, res, next) => {
   //
   if (!email || !password) {
     return next(
-      new ErrorHandler("Please enter Email and Password you little sneak", 400)
+      new ErrorHandler("Please enter Email and Password you little snack", 400)
     );
   }
-  const user = User.findOne({ email }).select("+password");
+  const user = await User.findOne({ email }).select("+password");
   if (!user) {
     return next(new ErrorHandler("invalid email or password"));
   }
 
+  //// COME BACK TO THIS AS IT MIGHT NOT WORK AT ALL
+  /// FOR REGISTERED USER TO LOG IN
   const isPasswordMatched = await user.comparePassword(password);
   if (!isPasswordMatched) {
-    return next(new ErrorHandler("Passwords did not match"));
+    console.log(isPasswordMatched);
+    return next(new ErrorHandler("Invalid email or password", 401));
   }
-
-  const token = user.getJWTToken();
-  res.status(201).json({
-    success: true,
-    token,
-  });
+  passToken(user, 200, res);
 };
