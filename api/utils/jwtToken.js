@@ -1,7 +1,4 @@
 // create token to save in cookie;
-const path = require("path");
-require("dotenv").config({ path: path.join(__dirname, ".env") });
-
 const passToken = (user, statusCode, res) => {
   const token = user.getJWTToken();
 

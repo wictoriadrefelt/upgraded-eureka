@@ -1,4 +1,11 @@
-let passport = require("passport");
+// USE ME TO GET A NON LOGGED IN USER TO NOT BE ABLE TO REACH CERTAIN ROUTES. FOR ADMIN STUFF MAINLY
+
+exports.isAutchenticated = async (req, res, next) => {
+  const token = req.cookies;
+  console.log(token);
+};
+
+/* let passport = require("passport");
 const passportJwt = require("passport-jwt");
 const User = require("../models/userModel");
 const config = require("../config.js");
@@ -30,3 +37,4 @@ module.exports = function () {
     },
   };
 };
+ */

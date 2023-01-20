@@ -10,6 +10,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const path = require("path");
 const dotenv = require("dotenv");
+const cookieParse = require("cookie-parser");
 
 app.use(express.json());
 app.use(cookieParser());
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.json());
 app.use(cors());
+app.use(cookieParse);
 
 // COME BACK TO THIS FOR AUTH
 
@@ -47,6 +49,7 @@ require("dotenv").config({ path: path.join(__dirname, ".env") });
 const product = require("./routes/productRoute");
 const order = require("./routes/orderRoute");
 const user = require("./routes/userRoute");
+const { use } = require("passport");
 //const user = require("./routes/userRoute");
 
 app.use("/api/v1", product);
