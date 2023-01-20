@@ -42,6 +42,8 @@ app.get("*", (req, res) => {
   dotenv.config({ path: path.resolve(__dirname, "./config/.env") });
 } */
 
+require("dotenv").config({ path: path.join(__dirname, ".env") });
+
 const product = require("./routes/productRoute");
 const order = require("./routes/orderRoute");
 const user = require("./routes/userRoute");
