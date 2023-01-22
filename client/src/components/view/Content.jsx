@@ -5,6 +5,7 @@ import ProductDetails from "../pages/ProductDetails";
 import Products from "../pages/Products";
 import Cart from "../pages/Cart";
 import Header from "../view/Header";
+import Starwars from "../pages/comp";
 
 const Content = () => {
   return (
@@ -15,7 +16,7 @@ const Content = () => {
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/header" element={<Header />} />
+        <Route path="/comp" element={<Starwars />} />
       </Routes>
     </>
   );

@@ -1,15 +1,11 @@
+/* specific font */
 @font-face {
-  font-family: "My Font";
-  src: url("./src/assets/Fonts/ARCADECLASSIC.TTF") format("truetype");
-}
-
-* {
-  font-family: "My Font";
-  color: white;
+  font-family: "arcade";
+  src: url("../src/assets/Fonts/kongtext.ttf");
 }
 
 .productCard {
-  height: 400px;
+  height: 300px;
   width: 60vw;
   margin-right: auto;
   margin-left: auto;
@@ -38,14 +34,17 @@
 
 .name {
   font-size: 20px;
+  color: white;
 }
 
 .description {
   font-size: 14px;
+  color: white;
 }
 
 .price {
   font-size: 20px;
+  color: white;
 }
 
 .buyOptions {
