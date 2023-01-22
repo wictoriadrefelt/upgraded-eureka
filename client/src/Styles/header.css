@@ -2,7 +2,6 @@
   width: 100vw;
   height: 100px;
   background-color: rgba(17, 17, 17, 255);
-  color: white;
   position: fixed;
   top: 0;
   margin: 0;
@@ -12,9 +11,11 @@
 }
 
 .headerDiv {
+  color: white;
   height: 100%;
   align-items: center;
   display: flex;
+  font-size: 20px;
 }
 
 .logoImg {
@@ -23,4 +24,9 @@
 
 .lives {
   height: 50%;
+}
+
+.points {
+  color: white;
+  font-size: 20px;
 }

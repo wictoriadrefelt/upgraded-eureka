@@ -4,6 +4,9 @@ import { getSingleProduct } from "../../actions/productAction";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { addItemsToCart } from "../../actions/cartAction";
+import "../../Styles/productDetails.css";
+import { Link } from "react-router-dom";
+import Header from "../view/Header";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -41,18 +44,43 @@ const ProductDetails = () => {
   }, [dispatch, id]);
 
   return (
-    <div>
-      {product.name}
-      <button onClick={decreaseQuantity}>-</button>
-      <input value={quantity} type="number" readOnly />
-      <button onClick={increaseQuantity}>+</button>
-      <button onClick={addToCartHandler}>Add to Cart</button>
-      Avaliable:
-      <p className={product.unit < 1 ? "black" : "white"}>
-        {product.unit < 1 ? "Not in stock" : "In stock"}
-      </p>
-      <p className="">{product.desc}</p>
-    </div>
+    <>
+      <Header></Header>
+      <Link to={`/`}>
+        <span className="back">Back</span>
+      </Link>
+      <div className="singlepageMain">
+        <div className="singlepageContainer">
+          <div className="singlepageDiv">
+            <div className="imgDiv">
+              <img className="singleImg" src={product.image} alt="" />
+            </div>
+            <div className="singleProductInfo">
+              <span className="inline-block bg padding-and-border">
+                <h3>{product.name}</h3>
+              </span>
+              <div className="bg padding-and-border gap">
+                <p className="singleDesc">{product.desc}</p>
+                <div className="stockInfo">
+                  <div className="stock">
+                    <p>Avaliable:</p>
+                    <p className={product.unit < 1}>
+                      {product.unit < 1 ? "Not in stock" : "In stock"}
+                    </p>
+                  </div>
+                  <p className="singlePrice padding-and-border bg">
+                    {product.price}
+                  </p>
+                </div>
+              </div>
+              <div className="flex-justify-space">
+                <button onClick={addToCartHandler}>Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

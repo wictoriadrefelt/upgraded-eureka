@@ -3,12 +3,6 @@
   width: 100vw;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .containerDiv {
   width: 60%;
   padding: 20px 60px 30px 40px;
