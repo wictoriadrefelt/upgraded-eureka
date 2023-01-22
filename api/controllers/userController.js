@@ -45,3 +45,15 @@ exports.loginUser = async (req, res, next) => {
 
   passToken(user, 200, res);
 };
+
+exports.logout = async (req, res, next) => {
+  req.cookie("token", null, {
+    expires: new Date(Date.now()),
+    httpOnly: true,
+  });
+
+  res.status(200).json({
+    success: true,
+    message: "Logged out",
+  });
+};

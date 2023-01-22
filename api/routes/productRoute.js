@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-/* const { isAutchenticated } = require("../middleware/auth"); */
+/* const { isAuthenticated } = require("../middleware/auth"); */
 
 app.use(cors());
 

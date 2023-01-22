@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const authRoute = require("./routes/authRoute");
+//const authRoute = require("./routes/authRoute");
 const auth = require("./middleware/auth.js");
 const passport = require("passport");
 const localStrategy = require("passport-local");
@@ -10,15 +10,16 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const path = require("path");
 const dotenv = require("dotenv");
-const cookieParse = require("cookie-parser");
 
 app.use(express.json());
-app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.json());
 app.use(cors());
-app.use(cookieParse);
+
+// THIS REMOVES ALL PRODUCTS
+
+//app.use(cookieParse);
 
 // COME BACK TO THIS FOR AUTH
 
@@ -54,5 +55,5 @@ const { use } = require("passport");
 
 app.use("/api/v1", product);
 app.use("/api/v1", order);
-app.use("/api/v1", user);
+//app.use("/api/v1", user);
 module.exports = app;

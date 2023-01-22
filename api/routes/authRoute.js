@@ -1,4 +1,4 @@
-const User = require("../models/userModel");
+/* const User = require("../models/userModel");
 const express = require("express");
 const passport = require("passport");
 const router = express.Router();
@@ -9,3 +9,4 @@ router
   .post(passport.authenticate("local"), authController.login);
 
 module.exports = router;
+ */

@@ -1,8 +1,26 @@
 // USE ME TO GET A NON LOGGED IN USER TO NOT BE ABLE TO REACH CERTAIN ROUTES. FOR ADMIN STUFF MAINLY
 
-exports.isAutchenticated = async (req, res, next) => {
-  const token = req.cookies;
+const ErrorHandler = require("../utils/errorhandler");
+const jwt = require("jsonwebtoken");
+const User = require("../models/userModel");
+
+exports.isAuthenticated = async (req, res, next) => {
+  const { token } = req.cookies;
   console.log(token);
+  if (!token) {
+    return next(
+      new ErrorHandler(
+        "No Access Here, Maybe There Is a Valid Reason For This",
+        401
+      )
+    );
+  }
+  const decoded = jwt.verify(token, process.env.VITE_SECRET_KEY);
+  console.log(VITE_SECRET_KEY);
+
+  req.user = await User.findById(decoded.id);
+
+  next();
 };
 
 /* let passport = require("passport");
