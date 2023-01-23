@@ -15,6 +15,7 @@ exports.isAuthenticated = async (req, res, next) => {
       )
     );
   }
+
   const decoded = jwt.verify(token, process.env.VITE_SECRET_KEY);
   console.log(VITE_SECRET_KEY);
 
