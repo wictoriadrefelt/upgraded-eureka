@@ -1,6 +1,7 @@
 const User = require("../models/userModel");
 const ErrorHandler = require("../utils/errorhandler");
 const passToken = require("../utils/jwtToken");
+const sendEmail = require("../utils/sendEmail");
 
 // user registration
 exports.registerUser = async (req, res, next) => {
@@ -47,7 +48,7 @@ exports.loginUser = async (req, res, next) => {
 };
 
 exports.logout = async (req, res, next) => {
-  req.cookie("token", null, {
+  res.cookie("token", null, {
     expires: new Date(Date.now()),
     httpOnly: true,
   });
@@ -55,5 +56,113 @@ exports.logout = async (req, res, next) => {
   res.status(200).json({
     success: true,
     message: "Logged out",
+  });
+};
+
+// Forgot Password
+exports.forgotPassword = async (req, res, next) => {
+  const user = await User.findOne({ email: req.body.email });
+
+  if (!user) {
+    return next(new ErrorHandler("User not found", 404));
+  }
+
+  // Get ResetPassword Token
+  const resetToken = user.getResetPasswordToken();
+
+  await user.save({ validateBeforeSave: false });
+
+  const resetPasswordUrl = `${req.protocol}://${req.get(
+    "host"
+  )}/password/reset/${resetToken}`;
+
+  const message = `Your password reset token is :- \n\n ${resetPasswordUrl} \n\nIf you have not requested this email then, please ignore it.`;
+
+  try {
+    await sendEmail({
+      email: user.email,
+      subject: ` Password Recovery`,
+      message,
+    });
+
+    res.status(200).json({
+      success: true,
+      message: `Email sent to ${user.email} successfully`,
+    });
+  } catch (error) {
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpire = undefined;
+
+    await user.save({ validateBeforeSave: false });
+
+    return next(new ErrorHandler(error.message, 500));
+  }
+};
+
+// Reset Password
+exports.resetPassword = async (req, res, next) => {
+  // creating token hash
+  const resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(req.params.token)
+    .digest("hex");
+
+  const user = await User.findOne({
+    resetPasswordToken,
+    resetPasswordExpire: { $gt: Date.now() },
+  });
+
+  if (!user) {
+    return next(
+      new ErrorHandler(
+        "Reset Password Token is invalid or has been expired",
+        400
+      )
+    );
+  }
+
+  if (req.body.password !== req.body.confirmPassword) {
+    return next(new ErrorHandler("Password does not match", 400));
+  }
+
+  user.password = req.body.password;
+  user.resetPasswordToken = undefined;
+  user.resetPasswordExpire = undefined;
+
+  await user.save();
+
+  passToken(user, 200, res);
+};
+
+exports.updatePassword = async (req, res, next) => {
+  const user = User.findById(req.params.id).select("+password");
+
+  // HAVE A LOOK AT THIS. COMPAREPASS IS NOT A FUNC
+  const arePasswordsMatching = await user.comparePassword(req.body.oldPassword);
+
+  if (!arePasswordsMatching) {
+    return next(new ErrorHandler("Password is incorrect"));
+  }
+  if (req.body.newPassword !== req.body.confirmPassword) {
+    return next(new ErrorHandler("Passwords do not match"));
+  }
+  user.password = req.body.newPassword;
+
+  await user.save();
+  passToken(user, 200, res);
+};
+
+exports.getSingleUser = async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user) {
+    return next(
+      new ErrorHandler(`User does not exist with Id: ${req.params.id}`)
+    );
+  }
+
+  res.status(200).json({
+    success: true,
+    user,
   });
 };
