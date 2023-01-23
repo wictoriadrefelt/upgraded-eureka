@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const authRoute = require("./routes/authRoute");
+//const authRoute = require("./routes/authRoute");
 const auth = require("./middleware/auth.js");
 const passport = require("passport");
 const localStrategy = require("passport-local");
@@ -12,11 +12,14 @@ const path = require("path");
 const dotenv = require("dotenv");
 
 app.use(express.json());
-app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.json());
 app.use(cors());
+
+// THIS REMOVES ALL PRODUCTS
+
+//app.use(cookieParse);
 
 // COME BACK TO THIS FOR AUTH
 
@@ -38,15 +41,19 @@ app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));
 }); */
 
-if (process.env.NODE_ENV !== "PRODUCTION") {
+/* if (process.env.NODE_ENV !== "PRODUCTION") {
   dotenv.config({ path: path.resolve(__dirname, "./config/.env") });
-}
+} */
+
+require("dotenv").config({ path: path.join(__dirname, ".env") });
 
 const product = require("./routes/productRoute");
 const order = require("./routes/orderRoute");
+const user = require("./routes/userRoute");
+const { use } = require("passport");
 //const user = require("./routes/userRoute");
 
 app.use("/api/v1", product);
 app.use("/api/v1", order);
-//app.use("api/user", user);
+//app.use("/api/v1", user);
 module.exports = app;
