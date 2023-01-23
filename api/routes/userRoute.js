@@ -8,6 +8,7 @@ const {
   resetPassword,
   updatePassword,
   getSingleUser,
+  deleteUser,
 } = require("../controllers/userController");
 const router = express.Router();
 
@@ -15,6 +16,7 @@ const router = express.Router();
 router.route("/allUsers").get(getAllUsers);
 router.route("/userDetails/:id").get(getSingleUser);
 router.route("/logout").get(logout);
+router.route("/removeUser/:id").delete(deleteUser);
 
 //post
 router.route("/register").post(registerUser);

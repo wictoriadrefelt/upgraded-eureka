@@ -24,8 +24,6 @@ exports.loginUser = async (req, res, next) => {
   const { email, password } = req.body;
   console.log(email, password);
 
-  // checking if user has given password and email both
-
   if (!email || !password) {
     return next(new ErrorHandler("Please Enter Email & Password", 400));
   }
@@ -39,6 +37,7 @@ exports.loginUser = async (req, res, next) => {
   const isPasswordMatched = await user.comparePassword(password);
 
   if (!isPasswordMatched) {
+    console.log(isPasswordMatched);
     return next(
       new ErrorHandler("Invalid email or password, so fuck you", 401)
     );
@@ -164,5 +163,17 @@ exports.getSingleUser = async (req, res, next) => {
   res.status(200).json({
     success: true,
     user,
+  });
+};
+
+exports.deleteUser = async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+  if (!user) {
+    return next(new ErrorHandler("This user does not exist"));
+  }
+  await user.remove();
+  res.status(200).json({
+    success: true,
+    message: "user deleted",
   });
 };

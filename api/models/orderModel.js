@@ -5,10 +5,10 @@ const OrderSchema = mongoose.Schema({
     address: { type: String },
     city: { type: String },
     postcode: { type: Number },
-    country: { type: Number },
+    country: { type: String },
     phoneNumber: { type: Number },
   },
-  itemsOnOrder: [
+  orderItems: [
     {
       name: { type: String },
       price: { type: Number },
@@ -31,13 +31,13 @@ const OrderSchema = mongoose.Schema({
   paymentInfo: {
     id: { type: String },
     status: { type: String },
-    paidAt: { type: Date },
-    itemsPrice: { type: Number },
-    shippingPrice: { type: Number },
-    totalPrice: { type: Number },
-    orderStatus: { type: String },
-    deliveredAt: { type: Date },
   },
+  paidAt: { type: Date },
+  itemsPrice: { type: Number },
+  shippingPrice: { type: Number },
+  totalPrice: { type: Number },
+  orderStatus: { type: String },
+  deliveredAt: { type: Date },
 });
 
 module.exports = mongoose.model("Order", OrderSchema);

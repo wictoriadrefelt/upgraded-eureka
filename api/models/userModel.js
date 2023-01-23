@@ -31,7 +31,7 @@ const userSchema = mongoose.Schema({
 // adding hash and salt to our users password
 const SALT_WORK_FACTOR = 10;
 userSchema.pre("save", async function save(next) {
-  /*   if (!this.isModified("password")) return next(); */
+  if (!this.isModified("password")) return next();
   try {
     const salt = await bcrypt.genSalt(SALT_WORK_FACTOR);
     this.password = await bcrypt.hash(this.password, salt);
@@ -49,6 +49,8 @@ userSchema.methods.getJWTToken = function () {
 };
 
 userSchema.methods.comparePassword = async function (password) {
+  console.log(password, "pas");
+  console.log(this.password, " pas 2");
   return await bcrypt.compare(password, this.password);
 };
 
