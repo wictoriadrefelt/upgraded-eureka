@@ -25,6 +25,10 @@ const ProductSchema = mongoose.Schema({
     required: [false],
     maxLength: [8, "Price cannot exceed 8 characters"],
   },
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
+  },
 });
 
 module.exports = mongoose.model("Product", ProductSchema);

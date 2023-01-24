@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
+// use me for admin things, authorizedRole sets so that only admin can create new products.
+/* const { isAuthenticated, authorizedRole } = require("../middleware/auth"); */
+
 app.use(cors());
 
 const {
