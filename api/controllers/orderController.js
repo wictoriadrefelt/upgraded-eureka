@@ -48,16 +48,20 @@ exports.getAllOrders = async (req, res, next) => {
 };
 
 exports.updateOrderStatus = async (req, res, next) => {
-  const order = await Order.find(req.params.id);
+  const order = await Order.findById(req.params.id);
 
+  if (!order) {
+    return next(new ErrorHandler("No order found with this id"));
+  }
   if (order.orderStatus === "Delivered") {
-    return next(new ErrorHandler("This order is delivered"));
+    return next(new ErrorHandler("This order is delivered", 400));
   }
 
-  order.orderItems.forEach(async (order) => {
-    await updateStock(order.Product, order.quantity);
-  });
-
+  if (req.body.status === "Shipped") {
+    order.orderItems.forEach(async (o) => {
+      await updateStock(o.product, o.quantity);
+    });
+  }
   order.orderStatus = req.body.status;
 
   if (req.body.status === "Delivired") {
@@ -66,14 +70,13 @@ exports.updateOrderStatus = async (req, res, next) => {
   await order.save({ validateBeforeSave: false });
   res.status(200).json({
     success: true,
-    totalAmount,
     order,
   });
 };
 
 async function updateStock(id, quantity) {
   const product = await Product.findById(id);
-  product.stock -= quantity;
+  product.unit -= quantity;
   await product.save({ validateBeforeSave: false });
 }
 
