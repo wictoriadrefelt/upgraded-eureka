@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const crypto = require("crypto");
+const { reset } = require("nodemon");
 
 // create user schema
 const userSchema = mongoose.Schema({
@@ -29,7 +31,7 @@ const userSchema = mongoose.Schema({
 // adding hash and salt to our users password
 const SALT_WORK_FACTOR = 10;
 userSchema.pre("save", async function save(next) {
-  /*   if (!this.isModified("password")) return next(); */
+  if (!this.isModified("password")) return next();
   try {
     const salt = await bcrypt.genSalt(SALT_WORK_FACTOR);
     this.password = await bcrypt.hash(this.password, salt);
@@ -47,7 +49,20 @@ userSchema.methods.getJWTToken = function () {
 };
 
 userSchema.methods.comparePassword = async function (password) {
+  console.log(password, "pas");
+  console.log(this.password, " pas 2");
   return await bcrypt.compare(password, this.password);
+};
+
+userSchema.methods.getResetPasswordToken = async function () {
+  const resetToken = crypto.randomBytes(20).toString("hex");
+  this.resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(resetToken)
+    .digest("hex");
+
+  this.resetPasswordExpire = Date.now() + 15 * 60 * 1000;
+  return resetToken;
 };
 
 module.exports = mongoose.model("User", userSchema);

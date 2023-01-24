@@ -6,7 +6,6 @@ const passToken = (user, statusCode, res) => {
   console.log(expiryDate);
 
   console.log(typeof expires);
-  console.log(options);
   res
     .status(statusCode)
     .cookie("token", token, { maxAge: expiryDate, httpOnly: true })
