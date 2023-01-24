@@ -1,18 +1,16 @@
 @font-face {
-  font-family: "My Font";
-  src: url("../assets/Fonts/PokemonGb-RAeo\ \(2\).ttf") format("truetype");
+  font-family: pokeFont;
+  src: url("../assets/Fonts/PokemonGb.ttf");
 }
 
 .singlepageMain {
-  font-family: "My Font";
-  font-size: 12px;
   color: black;
   margin-top: 100px;
   padding: 0;
   height: calc(100vh - 100px);
   width: 100vw;
   background: url("../assets/Bg/325108274_560738142629640_6490069727382729819_n.png");
-  background-size: 100%;
+  background-size: 99vw 88vh;
   background-repeat: no-repeat;
 }
 
@@ -22,12 +20,8 @@
   background-color: black;
 }
 
-.container {
-}
-
 .singlepageDiv {
   width: 100%;
-  /* height: auto; */
   display: flex;
   margin-top: 70px;
   min-height: 400px;
@@ -38,10 +32,13 @@
 
 .imgDiv {
   max-width: 40%;
+  display: flex;
+  flex-direction: column;
 }
 
 .singleImg {
   width: 90%;
+  min-width: 200px;
 }
 
 .singleProductInfo {
@@ -52,27 +49,35 @@
   justify-content: space-around;
   width: 60%;
   gap: 20px;
+  min-width: 300px;
 }
 
 .padding-and-border {
   border: solid;
   border-style: double;
   border-color: black;
-  border-width: 3px;
+  border-width: 12px;
   padding: 5px 10px;
   margin: 2px;
 }
 
 .singletitle {
-  font-size: 16px;
+  font-size: 22px;
+  margin: 0;
+  color: black;
+  font-family: pokeFont;
 }
 
 .singleDesc {
-  font-size: 14px;
+  color: black;
+  font-family: pokeFont;
+  font-size: 18px;
 }
 
 .singlePrice {
-  font-size: 16px;
+  color: black;
+  font-family: pokeFont;
+  font-size: 22px;
 }
 
 .inline-block {
@@ -90,10 +95,13 @@
 
 .stock {
   display: flex;
+  color: black;
+  font-family: pokeFont;
 }
 
 .stockInfo {
   display: flex;
+  justify-content: space-between;
 }
 
 .gap {
@@ -102,6 +110,54 @@
   flex-direction: column;
 }
 
-p {
+.singlepageCartBtn {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  font-family: pokeFont;
+}
+
+.backDiv {
+  width: 100%;
+}
+
+.back {
+  margin: auto;
+  color: white;
   font-size: 16px;
+  font-family: pokeFont;
+}
+
+@media (max-width: 800px) {
+  .singlepageDiv {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .singleProductInfo {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .singlepageMain {
+    background: none;
+    background-image: none;
+  }
+
+  .singlepageContainer {
+    width: 90vw;
+  }
+
+  .singlepageDiv {
+    width: unset;
+  }
+
+  .imgDiv {
+    max-width: 300px;
+  }
+
+  .inline-block {
+    width: unset;
+  }
 }

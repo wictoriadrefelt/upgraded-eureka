@@ -1,11 +1,26 @@
+@font-face {
+  font-family: arcade;
+  src: url("../src/assets/Fonts/ARCADECLASSIC.TTF");
+}
+
 .cartItemCard {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  font-family: arcade;
 }
 
-.cartImg {
+.addedToCartImg {
   background-color: aqua;
+  max-height: 80px;
+  max-width: 90px;
+}
+
+.cartItemCardTitle {
+  font-family: arcade;
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
 }
 
 .removeBtn {
@@ -15,6 +30,12 @@
   justify-content: flex-end;
 }
 
+.cartItemCardRemove {
+  margin: 0;
+  cursor: pointer;
+}
+
 .cartItem {
   border-bottom: dashed;
+  margin-bottom: 15px;
 }

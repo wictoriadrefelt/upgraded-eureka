@@ -7,14 +7,19 @@ const CartItemCard = ({ item, deleteItem }) => {
     <>
       <div className="cartItemCard">
         <Link to={`/product/${item.product}`}>
-          <img className="cartImg" src={item.image} alt="productImage" />
+          <img className="addedToCartImg" src={item.image} alt="productImage" />
         </Link>
         <Link to={`/product/${item.product}`}>
-          <p>{item.name}</p>
+          <p className="cartItemCardTitle">{item.name}</p>
         </Link>
       </div>
       <div className="removeBtn">
-        <p onClick={() => deleteItem(item.product)}>Remove</p>
+        <p
+          className="cartItemCardRemove"
+          onClick={() => deleteItem(item.product)}
+        >
+          Remove
+        </p>
       </div>
     </>
   );

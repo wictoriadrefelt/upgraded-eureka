@@ -15,9 +15,15 @@
   right: 1vw;
   margin: auto;
   top: 25%;
-  background-image: url("./src/assets/bg/marioBg.jpeg");
+  background-image: url("../assets/Bg/marioBg.jpeg");
   background-size: 100%;
   display: flex;
+  overflow: hidden;
+  font-family: "arcade";
+}
+
+.cartItem {
+  max-height: 200px;
 }
 
 .btns {
@@ -100,16 +106,17 @@
 
 .toCheckout {
   position: absolute;
-  z-index: 6;
+  z-index: 5;
   left: 1vw;
   right: 1vw;
   margin: auto;
   bottom: 40;
-  top: 120%;
+  top: 75%;
   text-align: center;
   background-color: black;
   padding: 20px;
   color: coral;
+  font-family: "arcade";
 }
 
 .toCheckout:hover {
@@ -161,10 +168,6 @@
   margin-left: 10%;
 }
 
-.cartImg {
-  height: 60px;
-}
-
 @media (max-width: 800px) {
   .cartContent {
     width: 100%;
@@ -187,5 +190,25 @@
   }
   .checkoutBtn {
     font-size: 16px;
+  }
+}
+
+.flower {
+  animation: MoveUpDown 5s linear infinite;
+  position: absolute;
+  z-index: -1;
+  left: 8%;
+  top: -100px;
+  width: 78%;
+  height: 150px;
+}
+
+@keyframes MoveUpDown {
+  0%,
+  100% {
+    top: 0;
+  }
+  50% {
+    top: -140px;
   }
 }

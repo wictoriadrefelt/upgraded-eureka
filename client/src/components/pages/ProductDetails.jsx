@@ -46,9 +46,6 @@ const ProductDetails = () => {
   return (
     <>
       <Header></Header>
-      <Link to={`/`}>
-        <span className="back">Back</span>
-      </Link>
       <div className="singlepageMain">
         <div className="singlepageContainer">
           <div className="singlepageDiv">
@@ -56,27 +53,35 @@ const ProductDetails = () => {
               <img className="singleImg" src={product.image} alt="" />
             </div>
             <div className="singleProductInfo">
-              <span className="inline-block bg padding-and-border">
-                <h3>{product.name}</h3>
-              </span>
-              <div className="bg padding-and-border gap">
+              <div className="inline-block bg padding-and-border">
+                <p className="singletitle">{product.name}</p>
+              </div>
+              <div className="bg padding-and-border">
                 <p className="singleDesc">{product.desc}</p>
                 <div className="stockInfo">
                   <div className="stock">
-                    <p>Avaliable:</p>
-                    <p className={product.unit < 1}>
-                      {product.unit < 1 ? "Not in stock" : "In stock"}
-                    </p>
+                    <div className="flex-justify-space">
+                      <p>Avaliable:</p>
+                      <p className={product.unit < 1}>
+                        {product.unit < 1 ? "Not in stock" : "In stock"}
+                      </p>
+                    </div>
                   </div>
-                  <p className="singlePrice padding-and-border bg">
-                    {product.price}
-                  </p>
+                  <p className="singlePrice">{product.price}</p>
                 </div>
-              </div>
-              <div className="flex-justify-space">
-                <button onClick={addToCartHandler}>Add to Cart</button>
+                <button
+                  className="singlepageCartBtn"
+                  onClick={addToCartHandler}
+                >
+                  Add to Cart
+                </button>
               </div>
             </div>
+          </div>
+          <div>
+            <Link className="backDiv" to={`/`}>
+              <span className="back">Back</span>
+            </Link>
           </div>
         </div>
       </div>

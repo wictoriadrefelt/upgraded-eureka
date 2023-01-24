@@ -1,3 +1,8 @@
+@font-face {
+  font-family: arcade;
+  src: url("../assets/Fonts/ARCADECLASSIC.TTF");
+}
+
 .headerContainer {
   width: 100vw;
   height: 100px;
@@ -18,15 +23,26 @@
   font-size: 20px;
 }
 
+.cartLoginDiv {
+  display: flex;
+  gap: 20px;
+  font-family: arcade;
+}
+
+.cartImg {
+  height: 40%;
+}
+
 .logoImg {
   height: 100%;
 }
 
 .lives {
-  height: 50%;
+  height: 40%;
 }
 
 .points {
   color: white;
-  font-size: 20px;
+  font-size: 28px;
+  font-family: arcade;
 }
