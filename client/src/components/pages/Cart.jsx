@@ -3,6 +3,10 @@ import "../../Styles/cart.css";
 import CartItemCard from "./CartItemCard";
 import { useSelector, useDispatch } from "react-redux";
 import { addItemsToCart, removeItemFromCart } from "../../actions/cartAction";
+import Header from "../view/Header";
+import tallpipe from "./../../assets/Bg/tallpipe.png";
+import shortpipe from "./../../assets/Bg/shortpipe.png";
+import flower from "./../../assets/Bg/flower.png";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -33,6 +37,7 @@ const Cart = () => {
   {
     return (
       <>
+        <Header></Header>
         {cartItems.length === 0 ? (
           <>
             <div className="emptyCart">"Nothing to see here"</div>
@@ -42,6 +47,19 @@ const Cart = () => {
           /// PLACE DIVS FOR EMPTY CART HERE AFTER LINE 35
           <>
             <div className="cartPageMain">
+              <div className="toCheckout">
+                <p className="checkoutBtn">Insert Coins To Begin</p>
+                <br />
+                <p className="checkoutClickMe">...Click here...</p>
+              </div>
+              <div className="leftFooterImg">
+                <img className="imgLeft" src={tallpipe} alt="tallpipe" />
+                <img className="flower" src={flower} alt="" />
+              </div>
+              <div className="rightFooterImg">
+                <img className="imgRight" src={shortpipe} alt="shortpipe" />
+                <img className="flower" src={flower} alt="" />
+              </div>
               <div className="cartContainer">
                 <div className="cartContent">
                   <h2 className="cartTitle">Kundvagn</h2>
@@ -98,29 +116,11 @@ const Cart = () => {
                     )}
                   </p>
                 </div>
-                <div className="toCheckout">
-                  <p className="checkoutBtn">Insert Coins To Begin</p>
-                  <br />
-                  <p className="checkoutClickMe">...Click here...</p>
-                </div>
               </div>
+
               <div className="stars"></div>
               <div className="twinkleMask"></div>
               <div className="twinkleMask2"></div>
-              <div className="leftFooterImg">
-                <img
-                  className="imgLeft"
-                  src="./src/assets/bg/tallpipe.png"
-                  alt="pipe"
-                />
-              </div>
-              <div className="rightFooterImg">
-                <img
-                  className="imgRight"
-                  src="./src/assets/bg/shortpipe.png"
-                  alt=""
-                />
-              </div>
             </div>
           </>
         )}

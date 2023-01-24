@@ -1,11 +1,11 @@
 /* specific font */
 @font-face {
-  font-family: "arcade";
-  src: url("../src/assets/Fonts/kongtext.ttf");
+  font-family: arcade;
+  src: url("../assets/Fonts/ARCADECLASSIC.TTF");
 }
 
 .productCard {
-  height: 300px;
+  height: 400px;
   width: 60vw;
   margin-right: auto;
   margin-left: auto;
@@ -13,7 +13,7 @@
   margin-bottom: 50px;
   display: flex;
   padding: 15px;
-  gap: 20px;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -33,18 +33,21 @@
 }
 
 .name {
-  font-size: 20px;
+  font-size: 24px;
   color: white;
+  font-family: arcade;
 }
 
 .description {
-  font-size: 14px;
+  font-size: 18px;
   color: white;
+  font-family: arcade;
 }
 
 .price {
   font-size: 20px;
   color: white;
+  font-family: arcade;
 }
 
 .buyOptions {
@@ -54,14 +57,14 @@
 }
 
 .productImg {
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 250px;
+  max-height: 250px;
   transition: width 2s, height 4s;
 }
 
 .productImg:hover {
-  width: 120%;
-  height: 120%;
+  width: 140%;
+  height: 140%;
 }
 
 @media (max-width: 800px) {
@@ -82,11 +85,11 @@
   }
 
   .name {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .description {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .price {
