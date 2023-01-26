@@ -1,11 +1,10 @@
-const LoginandRegister = () => {
+/* const LoginandRegister = () => {
   return <div>hej</div>;
 };
-export default LoginandRegister;
+export default LoginandRegister; */
 
-/* import React, { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 // import css
-const LoginandRegister = () => {
 const LoginandRegister = () => {
   const login = useRef(null);
   const register = useRef(null);
@@ -20,10 +19,10 @@ const LoginandRegister = () => {
     email: "",
     password: "",
   });
-  /*   console.log(user);
+  console.log(user);
   console.log(emailLogin, "hej");
   const { firstName, lastName, email, password } = user;
- 
+
   const switchTabs = (e, tab) => {
     if (tab === "login") {
       toggleTab.current.classList.add("neutral--login");
@@ -93,7 +92,6 @@ const LoginandRegister = () => {
         <form
           className="form--register"
           ref={register}
-          encType="multipart/form-data"
           onSubmit={registerSubmit}
         >
           <div className="firstName--register">
@@ -149,4 +147,3 @@ const LoginandRegister = () => {
 };
 
 export default LoginandRegister;
- */
