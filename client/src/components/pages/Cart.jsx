@@ -7,6 +7,8 @@ import Header from "../view/Header";
 import tallpipe from "./../../assets/Bg/tallpipe.png";
 import shortpipe from "./../../assets/Bg/shortpipe.png";
 import flower from "./../../assets/Bg/flower.png";
+import Terms from "./Terms";
+import "../../Styles/terms.css";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -25,8 +27,9 @@ const Cart = () => {
     const newQty = quantity - 1;
     if (unit <= quantity || 1 > quantity) {
       return;
+    } else {
+      dispatch(addItemsToCart(id, newQty));
     }
-    dispatch(addItemsToCart(id, newQty));
   };
 
   const deleteItem = (id) => {
@@ -57,6 +60,7 @@ const Cart = () => {
                   ...Click here...
                 </p>
               </div>
+              <Terms></Terms>
               <div className="leftFooterImg">
                 <img className="imgLeft" src={tallpipe} alt="tallpipe" />
                 <img className="flower" src={flower} alt="" />
@@ -86,12 +90,7 @@ const Cart = () => {
                             >
                               -
                             </button>
-                            <input
-                              className="amountNumber"
-                              type="number"
-                              value={item.quantity}
-                              readOnly
-                            />
+                            <p className="amountNumber">{item.quantity}</p>
                             <button
                               className="amount decrease"
                               onClick={() =>
@@ -114,15 +113,16 @@ const Cart = () => {
                     ))}
 
                   {/*PRICE FOR TOTAL CART*/}
-                  <p>
-                    {cartItems.reduce(
-                      (acc, item) => acc + item.quantity * item.price,
-                      0
-                    )}
-                  </p>
+                  <div className="totalPriceCart">
+                    <p>
+                      {cartItems.reduce(
+                        (acc, item) => acc + item.quantity * item.price,
+                        0
+                      )}
+                    </p>
+                  </div>
                 </div>
               </div>
-
               <div className="stars"></div>
               <div className="twinkleMask"></div>
               <div className="twinkleMask2"></div>

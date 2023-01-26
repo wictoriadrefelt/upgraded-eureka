@@ -17,7 +17,7 @@
 .singlepageContainer {
   width: 60%;
   margin: auto;
-  background-color: black;
+  background-color: transparent;
 }
 
 .singlepageDiv {
@@ -26,7 +26,7 @@
   margin-top: 70px;
   min-height: 400px;
   align-items: center;
-  background-color: black;
+  background-color: transparent;
   padding: 20px;
 }
 
@@ -102,6 +102,8 @@
 .stockInfo {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .gap {
@@ -137,6 +139,32 @@
   .singleProductInfo {
     width: 100%;
   }
+
+  .singletitle {
+    font-family: pokeFont;
+  }
+
+  .singleDesc {
+    font-size: 13px;
+  }
+
+  .singlePrice {
+    font-size: 16px;
+    margin: 0;
+  }
+  .singlepageCartBtn {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 640px) {
+  .singletitle {
+    font-size: 16px;
+  }
+
+  .stockInfo {
+    flex-wrap: wrap;
+  }
 }
 
 @media (max-width: 480px) {
@@ -154,7 +182,7 @@
   }
 
   .imgDiv {
-    max-width: 300px;
+    max-width: 200px;
   }
 
   .inline-block {
