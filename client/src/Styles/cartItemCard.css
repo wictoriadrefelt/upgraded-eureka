@@ -6,14 +6,15 @@
 .cartItemCard {
   display: flex;
   align-items: center;
-  justify-content: space-around;
   font-family: arcade;
+  width: 80%;
+  gap: 20%;
 }
 
 .addedToCartImg {
   background-color: aqua;
   max-height: 80px;
-  max-width: 90px;
+  width: 90px;
 }
 
 .cartItemCardTitle {

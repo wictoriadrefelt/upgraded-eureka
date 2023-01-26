@@ -14,9 +14,9 @@ const Header = () => {
           <img className="lives" src={lives} alt="" />
           <img className="lives" src={lives} alt="" />
         </div>
-        <div className="logoDiv headerDiv">
+        <Link className="logoDiv headerDiv" to={`/`}>
           <img className="logoImg" src={logo} alt="" />
-        </div>
+        </Link>
         <div className="cartDiv headerDiv">
           <div className="points">000000</div>
           <div className="headerDiv">

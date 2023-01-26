@@ -1,0 +1,30 @@
+.cookie-accept {
+  position: absolute;
+  width: 80vw;
+  z-index: 999999;
+  color: white;
+  top: 66vh;
+  left: 10vw;
+  right: 10vw;
+  border: solid;
+  border-color: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  text-align: center;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.cookie-btn-container {
+  display: flex;
+  gap: 20px;
+}
+
+.cookie-btn {
+  background-color: transparent;
+  color: white;
+}
