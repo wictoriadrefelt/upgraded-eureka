@@ -1,0 +1,43 @@
+@font-face {
+  font-family: arcade;
+  src: url("../assets/Fonts/ARCADECLASSIC.TTF");
+}
+
+.terms-container {
+  position: absolute;
+  z-index: 10;
+  top: 16vh;
+  left: 18vw;
+  font-family: arcade;
+}
+
+.termsContent {
+  color: white;
+  position: absolute;
+  z-index: 10;
+  width: 600px;
+  background-color: black;
+  font-family: arcade;
+}
+
+.checkBoxTerms {
+  color: white;
+  font-family: arcade;
+}
+
+.agreeLabel {
+  color: white;
+  font-family: arcade;
+}
+
+@media (max-width: 800px) {
+  .termsContent {
+    width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .terms-container {
+    left: 0;
+  }
+}

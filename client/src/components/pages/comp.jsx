@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../Styles/comp.css";
 import sound from "../../assets/Sounds/2023-01-22 182133.wav";
+import Start from "./Start";
 
 const StarWars = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,8 +17,16 @@ const StarWars = () => {
     setIsPlaying(!isPlaying);
   };
 
+  const [currentPage, setCurrentPage] = useState("/");
+
+  const handleClick = () => {
+    console.log("tostart");
+    setCurrentPage("/mwfd");
+  };
+
   return (
     <body className="landingpageBody">
+      <button onClick={handleClick}>Click to get to page</button>
       <div className="landingDiv" onClick={playSound}>
         <button onClick={() => setIsVisible(!isVisible)}>Start</button>
         <div className={`fade ${isVisible ? "visible" : ""}`}></div>
@@ -50,10 +59,13 @@ const StarWars = () => {
 
             <p className="landingpageParagraph">
               Two students had enough, lifted their arms and took up the fight
-              against the evil empire. To late? Perhaps.. But the fight should
-              (hopefully) echo in eternity and help future generations of
-              students to have a less degrading time at the school and leave
-              them a chance to beat the evil generals at their own game
+              against the evil empire.
+            </p>
+            <p className="landingpageParagraph">
+              To late? Perhaps.. But the fight should (hopefully) echo in
+              eternity and help future generations of students to have a less
+              degrading time at the school and leave them a chance to beat the
+              evil generals at their own game
             </p>
           </div>
         </section>
