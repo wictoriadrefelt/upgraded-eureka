@@ -6,6 +6,8 @@ import Products from "../pages/Products";
 import Cart from "../pages/Cart";
 import Header from "../view/Header";
 import Starwars from "../pages/comp";
+import LoginandRegister from "../pages/LoginandRegistration";
+import Shipping from "../pages/Shipping";
 
 const Content = () => {
   return (
@@ -17,6 +19,8 @@ const Content = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/comp" element={<Starwars />} />
+        <Route path="/login" element={<LoginandRegister />} />
+        <Route path="/shipping" element={<Shipping />} />
       </Routes>
     </>
   );

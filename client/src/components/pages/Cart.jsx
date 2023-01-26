@@ -33,11 +33,14 @@ const Cart = () => {
     dispatch(removeItemFromCart(id));
   };
 
-  const checkoutHander = () => {};
+  const goToCheckout = () => {
+    window.location.replace("/shipping");
+    // history.push("/login?redirect=shipping")
+  };
   {
     return (
       <>
-        <Header></Header>
+        <Header />
         {cartItems.length === 0 ? (
           <>
             <div className="emptyCart">"Nothing to see here"</div>
@@ -50,7 +53,9 @@ const Cart = () => {
               <div className="toCheckout">
                 <p className="checkoutBtn">Insert Coins To Begin</p>
                 <br />
-                <p className="checkoutClickMe">...Click here...</p>
+                <p className="checkoutClickMe" onClick={goToCheckout}>
+                  ...Click here...
+                </p>
               </div>
               <div className="leftFooterImg">
                 <img className="imgLeft" src={tallpipe} alt="tallpipe" />

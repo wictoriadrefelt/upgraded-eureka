@@ -4,8 +4,6 @@ import "../../Styles/productCard.css";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
-  console.log(typeof product.image);
-  console.log(product.image);
   return (
     <>
       {/*  */}
