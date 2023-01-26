@@ -11,12 +11,12 @@ const {
   deleteUser,
   getUserDetails,
 } = require("../controllers/userController");
-const { isAuthenticated, autherizedRoles } = require("../middleware/auth");
+const { isAuthenticated, authorizedRoles } = require("../middleware/auth");
 const router = express.Router();
 
 //get
-router.route("/allUsers").get(getAllUsers);
-router.route("/userDetails/:id").get(getSingleUser);
+router.route("/admin/allUsers").get(authorizedRoles("admin"), getAllUsers);
+router.route("/userDetails/:id").get(authorizedRoles("admin"), getSingleUser);
 router.route("/logout").get(logout);
 router.route("/removeUser/:id").delete(deleteUser);
 

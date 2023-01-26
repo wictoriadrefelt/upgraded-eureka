@@ -21,12 +21,14 @@ exports.isAuthenticated = async (req, res, next) => {
   next();
 };
 
-exports.autherizedRoles = (...roles) => {
+exports.authorizedRoles = (...roles) => {
   return (req, res, next) => {
-    if (!roles.includes(req.user.role)) {
+    if (!roles.includes(req.body.role)) {
+      console.log(req.body.role);
+      console.log(roles);
       return next(
         new ErrorHandler(
-          `Role:  ${req.user.role} is not allowed to access this resource`,
+          `Role: ${req.body.role} is not allowed to access this resource`,
           403
         )
       );
