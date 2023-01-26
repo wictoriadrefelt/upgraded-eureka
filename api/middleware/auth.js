@@ -6,7 +6,7 @@ const User = require("../models/userModel");
 
 exports.isAuthenticated = async (req, res, next) => {
   const { token } = req.cookies;
-  console.log(token);
+  console.log(token, "hej");
   if (!token) {
     return next(
       new ErrorHandler(
@@ -15,16 +15,13 @@ exports.isAuthenticated = async (req, res, next) => {
       )
     );
   }
-
-  const decoded = jwt.verify(token, process.env.VITE_SECRET_KEY);
-  console.log(VITE_SECRET_KEY);
-
+  const decoded = jwt.verify(token, process.env.JWT_SECRET);
   req.user = await User.findById(decoded.id);
 
   next();
 };
 
-exports.autharizedRoles = (...roles) => {
+exports.autherizedRoles = (...roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
       return next(

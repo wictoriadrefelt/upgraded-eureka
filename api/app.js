@@ -10,6 +10,9 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const path = require("path");
 const dotenv = require("dotenv");
+var cookies = require("cookie-parser");
+
+app.use(cookies());
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
