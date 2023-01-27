@@ -4,15 +4,15 @@ import React, { useState, useRef, Fragment } from "react";
 import Modal from "./components/view/Modal.jsx";
 import { useCookies } from "react-cookie";
 import "./Styles/App.css";
+import { useSelector } from "react-redux";
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
   const [isAccepted, setIsAccepted] = useState(false);
+  const { isAuthenticated, user } = useSelector((state) => state.user);
 
   function handleClick() {
     const token = "myAuthToken1234567890"; //replace with your actual token
-    console.log("eergerv");
-    console.log(cookies);
     setCookie(
       "user",
       "Cookies accepted",

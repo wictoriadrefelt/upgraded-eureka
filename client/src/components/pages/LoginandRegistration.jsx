@@ -1,83 +1,99 @@
-/* const LoginandRegister = () => {
-  return <div>hej</div>;
-};
-export default LoginandRegister; */
+import React, { Fragment, useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { clearErrors, login, register } from "../../actions/userAction";
 
-import React, { useRef, useState } from "react";
-// import css
-const LoginandRegister = () => {
-  const login = useRef(null);
-  const register = useRef(null);
-  const toggleTab = useRef(null);
+const LoginAndRegister = () => {
+  const dispatch = useDispatch();
 
-  const { emailLogin, setEmailLogin } = useState("");
-  const { loginPassword, setLoginPassword } = useState("");
+  const { error, loading, isAuthenticated } = useSelector(
+    (state) => state.user
+  );
 
-  const { user, setUser } = useState({
+  const loginTab = useRef(null);
+  const registerTab = useRef(null);
+  const switcherTab = useRef(null);
+
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  const [user, setUser] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
   });
-  console.log(user);
-  console.log(emailLogin, "hej");
+
   const { firstName, lastName, email, password } = user;
+  console.log(user);
 
-  const switchTabs = (e, tab) => {
-    if (tab === "login") {
-      toggleTab.current.classList.add("neutral--login");
-      toggleTab.current.classList.remove("right--login");
-
-      register.current.classList.remove("neutral--register");
-      login.current.classList.remove("left--login");
-    }
-    if (tab === "register") {
-      toggleTab.current.classList.add("neutral--login");
-      toggleTab.current.classList.remove("right--login");
-
-      register.current.classList.add("neutral--register");
-      login.current.classList.add("left--login");
-    }
-  };
-
-  const loginSubmit = () => {
-    console.log("tjena");
+  const loginSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(loginEmail, loginPassword));
   };
 
   const registerSubmit = (e) => {
     e.preventDefault();
-    const form = new FormData();
-    form.set("firstName", firstName);
-    form.set("lastName", lastName);
-    form.set("email", email);
-    form.set("password", password);
-    console.log("sign up submitted");
+
+    const myForm = new FormData();
+
+    myForm.set("firstName", firstName);
+    myForm.set("lastName", lastName);
+    myForm.set("email", email);
+    myForm.set("password", password);
+    dispatch(register(myForm));
   };
 
   const registerDataChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      //window.location.replace("/home");
+      console.log("logged in");
+    }
+  }, [dispatch, isAuthenticated]);
+
+  const switchTabs = (e, tab) => {
+    if (tab === "login") {
+      switcherTab.current.classList.add("shiftToNeutral");
+      switcherTab.current.classList.remove("shiftToRight");
+
+      registerTab.current.classList.remove("shiftToNeutralForm");
+      loginTab.current.classList.remove("shiftToLeft");
+    }
+    if (tab === "register") {
+      switcherTab.current.classList.add("shiftToRight");
+      switcherTab.current.classList.remove("shiftToNeutral");
+
+      registerTab.current.classList.add("shiftToNeutralForm");
+      loginTab.current.classList.add("shiftToLeft");
+    }
+  };
+
   return (
-    <div className="container--login">
-      <div className="box--login">
-        <div>
-          <div className="toggle--loginSignup">
-            <p onClick={(e) => switchTabs(e, "login")}>Login</p>
-            <p onClick={(e) => switchTabs(e, "register")}>Register</p>
+    <Fragment>
+      <div className="LoginSignUpContainer">
+        <div className="LoginSignUpBox">
+          <div>
+            <div className="login_signUp_toggle">
+              <p onClick={(e) => switchTabs(e, "login")}>LOGIN</p>
+              <p onClick={(e) => switchTabs(e, "register")}>REGISTER</p>
+            </div>
+            <button ref={switcherTab}></button>
           </div>
-          <button ref={toggleTab}></button>
-        </div>
-        <form className="form--login" ref={login} onSubmit={loginSubmit}>
-          <div className="email--login">
-            <input
-              type="email"
-              placeholder="Email"
-              required
-              value={emailLogin}
-              onChange={(e) => setEmailLogin(e.target.value)}
-            />
-            <div className="password--login">
+          <form className="loginForm" ref={loginTab} onSubmit={loginSubmit}>
+            <div className="loginEmail">
+              <input
+                type="email"
+                placeholder="Email"
+                required
+                value={loginEmail}
+                onChange={(e) => setLoginEmail(e.target.value)}
+              />
+            </div>
+            <div className="loginPassword">
               <input
                 type="password"
                 placeholder="Password"
@@ -86,64 +102,62 @@ const LoginandRegister = () => {
                 onChange={(e) => setLoginPassword(e.target.value)}
               />
             </div>
-            <input type="submit" value="Login" className="button--login" />
-          </div>
-        </form>
-        <form
-          className="form--register"
-          ref={register}
-          onSubmit={registerSubmit}
-        >
-          <div className="firstName--register">
-            <input
-              type="text"
-              placeholder="Firstname"
-              required
-              name="firstName"
-              value={firstName}
-              onChange={registerDataChange}
-            />
-          </div>
-          <div className="lastName--register">
-            <input
-              type="text"
-              placeholder="Lastname"
-              required
-              name="lastName"
-              value={lastName}
-              onChange={registerDataChange}
-            />
-          </div>
-          <div className="email--register">
-            <input
-              type="text"
-              placeholder="Email"
-              required
-              name="Email"
-              value={email}
-              onChange={registerDataChange}
-            />
-          </div>
-          <div className="password--register">
-            <input
-              type="text"
-              placeholder="Password"
-              required
-              name="Password"
-              value={password}
-              onChange={registerDataChange}
-            />
-          </div>
-          <input
-            className="button--register"
-            type="submit"
-            value="Register"
-            disabled={loading ? true : false}
-          />
-        </form>
+            <Link to="/password/forgot">Forget Password ?</Link>
+            <input type="submit" value="Login" className="loginBtn" />
+          </form>
+          <form
+            className="signUpForm"
+            ref={registerTab}
+            encType="multipart/form-data"
+            onSubmit={registerSubmit}
+          >
+            <div className="signUpName">
+              <input
+                type="text"
+                placeholder="First Name"
+                required
+                name="firstName"
+                value={firstName}
+                onChange={registerDataChange}
+              />
+            </div>
+            <div className="signUpName">
+              <input
+                type="text"
+                placeholder="Last Name"
+                required
+                name="lastName"
+                value={lastName}
+                onChange={registerDataChange}
+              />
+            </div>
+            <div className="signUpEmail">
+              <input
+                type="email"
+                placeholder="Email"
+                required
+                name="email"
+                value={email}
+                onChange={registerDataChange}
+              />
+            </div>
+            <div className="signUpPassword">
+              <input
+                type="password"
+                placeholder="Password"
+                required
+                name="password"
+                value={password}
+                onChange={registerDataChange}
+              />
+            </div>
+
+            <input type="submit" value="Register" className="signUpBtn" />
+          </form>
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 
-export default LoginandRegister;
+export default LoginAndRegister;

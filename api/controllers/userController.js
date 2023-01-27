@@ -5,7 +5,10 @@ const sendEmail = require("../utils/sendEmail");
 
 // user registration
 exports.registerUser = async (req, res, next) => {
-  const user = await User.create(req.body);
+  const { firstName, lastName, email, password } = req.body;
+
+  const user = await User.create({ firstName, lastName, email, password });
+  console.log(user, "user", req.body, "req.bod");
   passToken(user, 201, res);
 };
 
@@ -22,6 +25,8 @@ exports.getAllUsers = async (req, res, next) => {
 // login for user
 exports.loginUser = async (req, res, next) => {
   const { email, password } = req.body;
+  console.log(req.body, "bod");
+
   console.log(email, password);
 
   if (!email || !password) {

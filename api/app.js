@@ -11,14 +11,11 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const dotenv = require("dotenv");
 var cookies = require("cookie-parser");
-
+app.use(cors());
 app.use(cookies());
-
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use(express.json());
-app.use(cors());
+app.use(bodyParser.json());
 
 // THIS REMOVES ALL PRODUCTS
 
@@ -53,8 +50,6 @@ require("dotenv").config({ path: path.join(__dirname, ".env") });
 const product = require("./routes/productRoute");
 const order = require("./routes/orderRoute");
 const user = require("./routes/userRoute");
-const { use } = require("passport");
-//const user = require("./routes/userRoute");
 
 app.use("/api/v1", product);
 app.use("/api/v1", order);

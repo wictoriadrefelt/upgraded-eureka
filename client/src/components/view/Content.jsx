@@ -6,9 +6,9 @@ import Products from "../pages/Products";
 import Cart from "../pages/Cart";
 import Header from "../view/Header";
 import Starwars from "../pages/comp";
-import LoginandRegister from "../pages/LoginandRegistration";
+import LoginAndRegister from "../pages/LoginandRegistration";
 import Shipping from "../pages/Shipping";
-import ConfirmOrder from '../pages/ConfirmOrder'
+import ConfirmOrder from "../pages/ConfirmOrder";
 
 const Content = () => {
   return (
@@ -20,7 +20,7 @@ const Content = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/comp" element={<Starwars />} />
-        <Route path="/login" element={<LoginandRegister />} />
+        <Route path="/login" element={<LoginAndRegister />} />
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/confirm" element={<ConfirmOrder />} />
       </Routes>
