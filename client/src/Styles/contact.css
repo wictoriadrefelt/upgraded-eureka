@@ -1,6 +1,12 @@
+@font-face {
+  font-family: arcade;
+  src: url("../src/assets/Fonts/ARCADECLASSIC.TTF");
+}
+
 .cartpageMain {
-  height: 100vh;
+  height: calc(100vh - 100px);
   width: 100vw;
+  margin-top: 100px;
 }
 
 .containerDiv {
@@ -8,9 +14,11 @@
   padding: 20px 60px 30px 40px;
   margin: auto;
   z-index: 4;
+  max-width: 700px;
   position: absolute;
   left: 1vw;
   right: 1vw;
+  font-family: arcade;
 }
 
 .contentDiv {
@@ -19,6 +27,7 @@
   border-color: white;
   display: flex;
   justify-content: center;
+  font-family: arcade;
 }
 
 .containerDiv .contentDiv .left-side {
@@ -40,6 +49,7 @@
   top: 50%;
   transform: translateY(-50%);
   background: #afafb6;
+  font-family: arcade;
 }
 
 .containerDiv .contentDiv .right-side {
@@ -49,6 +59,7 @@
   font-size: 23px;
   font-weight: 600;
   color: white;
+  font-family: arcade;
 }
 .right-side .input-box {
   height: 40px;
@@ -67,10 +78,12 @@
   padding: 0 15px;
   resize: none;
   color: white;
+  font-family: arcade;
 }
 .right-side .message-box {
   min-height: 110px;
   color: white;
+  font-family: arcade;
 }
 .right-side .input-box textarea {
   padding-top: 6px;
@@ -88,6 +101,7 @@
   transition: all 0.3s ease;
   border: solid;
   border-color: white;
+  font-family: arcade;
 }
 .button input[type="button"]:hover {
   background: #5029bc;
@@ -103,10 +117,12 @@
 
 .sendMsgBtn {
   border: dashed;
-  background-color: none;
+  background: none;
   color: white;
   background-color: none !important;
   font-size: 12px !important;
+  font-family: arcade;
+  padding: 10px;
 }
 
 @media (max-width: 820px) {

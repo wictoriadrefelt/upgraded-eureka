@@ -39,11 +39,15 @@
 }
 
 .lives {
-  height: 40%;
+  height: 30%;
 }
 
 .points {
   color: white;
   font-size: 28px;
   font-family: arcade;
+}
+
+.contactImg {
+  height: 40%;
 }

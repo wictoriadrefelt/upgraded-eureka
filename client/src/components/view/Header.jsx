@@ -5,6 +5,7 @@ import lives from "../../assets/Bg/323750053_481710913944178_1905310230362202522
 import cartLogo from "../../assets/Bg/shopping_cart_PNG73.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import contactPhone from "../../assets/Bg/phone.png";
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -32,6 +33,13 @@ const Header = () => {
                 <img className="cartImg" src={cartLogo} alt="" />
               </Link>
               <div className="loginDiv headerDiv">Login</div>
+              <Link className="headerDiv" to={`/contact/`}>
+                <img
+                  className="contactImg"
+                  src={contactPhone}
+                  alt="contactPhone"
+                />
+              </Link>
             </div>
           </div>
         </div>
