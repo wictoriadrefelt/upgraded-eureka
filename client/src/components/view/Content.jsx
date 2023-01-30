@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Start from "../pages/Start";
 import Contact from "../pages/ContactUs";
 import ProductDetails from "../pages/ProductDetails";
@@ -11,6 +11,7 @@ import Shipping from "../pages/Shipping";
 import ConfirmOrder from "../pages/ConfirmOrder";
 
 const Content = () => {
+  const history = useNavigate();
   return (
     <>
       <Routes>

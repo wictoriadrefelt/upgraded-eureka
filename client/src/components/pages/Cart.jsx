@@ -1,8 +1,13 @@
 import React, { Link, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../Styles/cart.css";
 import CartItemCard from "./CartItemCard";
 import { useSelector, useDispatch } from "react-redux";
-import { addItemsToCart, removeItemFromCart, decreaseItemsToCart } from "../../actions/cartAction";
+import {
+  addItemsToCart,
+  removeItemFromCart,
+  decreaseItemsToCart,
+} from "../../actions/cartAction";
 import Header from "../view/Header";
 import tallpipe from "./../../assets/Bg/tallpipe.png";
 import shortpipe from "./../../assets/Bg/shortpipe.png";
@@ -11,6 +16,7 @@ import TermsAndConditions from "./Terms";
 import "../../Styles/terms.css";
 
 const Cart = () => {
+  const navigate = useNavigate();
   document.title = "IneedIT Cartpage";
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
@@ -19,7 +25,7 @@ const Cart = () => {
     // Function for checking unit >= quantity
     dispatch(addItemsToCart(product));
   };
-  
+
   const decreaseQuantity = (product) => {
     // Function for checking unit >= quantity
     dispatch(decreaseItemsToCart(product));
@@ -32,12 +38,12 @@ const Cart = () => {
   const [accepted, setAccepted] = useState(false);
 
   const handleAccept = (accept) => {
+    console.log(cartItems);
     setAccepted(accept);
   };
 
   const goToCheckout = () => {
-    window.location.replace("/shipping");
-    // history.push("/login?redirect=shipping")
+    navigate("/shipping");
   };
 
   return (
@@ -83,9 +89,7 @@ const Cart = () => {
                       <div className="btns">
                         <button
                           className="amount add"
-                          onClick={() =>
-                            decreaseQuantity(item.product)
-                          }
+                          onClick={() => decreaseQuantity(item.product)}
                         >
                           -
                         </button>
@@ -94,8 +98,8 @@ const Cart = () => {
                           className="amount decrease"
                           /* disabled={item.quantity >= item.unit} */
                           onClick={() => {
-                            console.log("asdasd")
-                            increaseQuantity(item.product)
+                            console.log("asdasd");
+                            increaseQuantity(item.product);
                           }}
                         >
                           +

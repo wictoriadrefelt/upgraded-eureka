@@ -1,16 +1,15 @@
-
 import React, { Fragment, useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
+import { push } from "react-router-redux";
 
-const LoginAndRegister = () => {
- document.title = "IneedIT Login & registration";
+const LoginAndRegister = ({ history }) => {
+  const navigate = useNavigate();
+  document.title = "IneedIT Login & registration";
   const dispatch = useDispatch();
 
-  const { error, loading, isAuthenticated } = useSelector(
-    (state) => state.user
-  );
+  const { isAuthenticated } = useSelector((state) => state.user);
 
   const loginTab = useRef(null);
   const registerTab = useRef(null);
@@ -21,12 +20,11 @@ const LoginAndRegister = () => {
 
   const [user, setUser] = useState({
     firstName: "",
-    lastName: "",
     email: "",
     password: "",
   });
 
-  const { firstName, lastName, email, password } = user;
+  const { firstName, email, password } = user;
   console.log(user);
 
   const loginSubmit = (e) => {
@@ -40,7 +38,6 @@ const LoginAndRegister = () => {
     const myForm = new FormData();
 
     myForm.set("firstName", firstName);
-    myForm.set("lastName", lastName);
     myForm.set("email", email);
     myForm.set("password", password);
     dispatch(register(myForm));
@@ -52,8 +49,7 @@ const LoginAndRegister = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      //window.location.replace("/home");
-      console.log("logged in");
+      navigate("/home");
     }
   }, [dispatch, isAuthenticated]);
 
@@ -123,7 +119,7 @@ const LoginAndRegister = () => {
                 onChange={registerDataChange}
               />
             </div>
-            <div className="signUpName">
+            {/*  <div className="signUpName">
               <input
                 type="text"
                 placeholder="Last Name"
@@ -132,7 +128,7 @@ const LoginAndRegister = () => {
                 value={lastName}
                 onChange={registerDataChange}
               />
-            </div>
+            </div> */}
             <div className="signUpEmail">
               <input
                 type="email"
