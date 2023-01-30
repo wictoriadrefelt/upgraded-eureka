@@ -11,7 +11,6 @@ import Shipping from "../pages/Shipping";
 import ConfirmOrder from "../pages/ConfirmOrder";
 
 const Content = () => {
-  const history = useNavigate();
   return (
     <>
       <Routes>

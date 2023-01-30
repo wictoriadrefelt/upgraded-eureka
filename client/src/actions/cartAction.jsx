@@ -7,14 +7,18 @@ import axios from "axios";
 
 export const addItemsToCart = (product) => async (dispatch, getState) => {
   // cartItems can be string or null
-  let cartItems = localStorage.getItem("cartItems")
-  cartItems = cartItems ? JSON.parse(cartItems) : null
+  let cartItems = localStorage.getItem("cartItems");
+  cartItems = cartItems ? JSON.parse(cartItems) : null;
 
   dispatch({
     type: ADD_TO_CART,
     payload: {
       product: product,
-      quantity: (cartItems && cartItems.find(cartItem => cartItem.product._id === product._id)?.quantity + 1) || 1,
+      quantity:
+        (cartItems &&
+          cartItems.find((cartItem) => cartItem.product._id === product._id)
+            ?.quantity + 1) ||
+        1,
     },
   });
 
@@ -22,14 +26,17 @@ export const addItemsToCart = (product) => async (dispatch, getState) => {
 };
 
 export const decreaseItemsToCart = (product) => async (dispatch, getState) => {
-
   // cartItems can be string or null
-  let cartItems = localStorage.getItem("cartItems")
-  cartItems = cartItems ? JSON.parse(cartItems) : null
+  let cartItems = localStorage.getItem("cartItems");
+  cartItems = cartItems ? JSON.parse(cartItems) : null;
 
-  let cartItem = cartItems ? cartItems.find(cartItem => cartItem.product._id === product._id) : undefined
+  let cartItem = cartItems
+    ? cartItems.find((cartItem) => cartItem.product._id === product._id)
+    : undefined;
 
-  if(!cartItem || cartItem.quantity == 1) { return }
+  if (!cartItem || cartItem.quantity == 1) {
+    return;
+  }
 
   dispatch({
     type: ADD_TO_CART,
@@ -55,9 +62,5 @@ export const saveShippingInfo = (data) => async (dispatch) => {
     type: SAVE_SHIPPING_INFO,
     payload: data,
   });
-  localStorage.setItem(
-    "shippingInfo",
-    JSON.stringify(getState().cart.shippingInfo)
-  );
+  localStorage.setItem("shippingInfo", JSON.stringify(data));
 };
-

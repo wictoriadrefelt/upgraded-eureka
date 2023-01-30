@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { saveShippingInfo } from "../../actions/cartAction";
 import { Country } from "country-state-city";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function Shipping() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { shippingInfo } = useSelector((state) => state.cart);
 
@@ -17,7 +19,7 @@ function Shipping() {
     e.preventDefault();
 
     dispatch(saveShippingInfo({ address, city, country, postcode, phoneNr }));
-    //window.location.replace("/confirm");
+    navigate("/confirm");
   };
   return (
     <div>
