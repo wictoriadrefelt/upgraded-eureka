@@ -3,7 +3,6 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
-const { reset } = require("nodemon");
 
 // create user schema
 const userSchema = mongoose.Schema({
@@ -16,6 +15,7 @@ const userSchema = mongoose.Schema({
   email: {
     type: String,
     validate: [validator.isEmail, "Please Enter a valid Email"],
+    default: "hej@hej.se",
   },
   password: {
     type: String,
@@ -28,13 +28,20 @@ const userSchema = mongoose.Schema({
   resetPasswordExpire: Date,
 });
 
+/* userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    next();
+  }
+
+  this.password = bcrypt.hash(this.password, 10); */
 // adding hash and salt to our users password
+
 const SALT_WORK_FACTOR = 10;
 userSchema.pre("save", async function save(next) {
   if (!this.isModified("password")) return next();
   try {
     const salt = await bcrypt.genSalt(SALT_WORK_FACTOR);
-    this.password = await bcrypt.hash(this.password, salt);
+    this.password = bcrypt.hash(this.password, salt);
     return next();
   } catch (err) {
     return next(err);
