@@ -1,4 +1,5 @@
 const LoginandRegister = () => {
+  document.title = "IneedIT Login & registration";
   return <div>hej</div>;
 };
 export default LoginandRegister;
