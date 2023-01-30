@@ -14,6 +14,8 @@ import Payment from "../pages/Payment";
 import axios from "axios";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import Success from "../pages/Success";
+import AboutUs from "../pages/aboutUs";
 
 const Content = () => {
   const [stripeApiKey, setStripeApiKey] = useState("");
@@ -41,11 +43,6 @@ const Content = () => {
         <Route path="/login" element={<LoginAndRegister />} />
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/confirm" element={<ConfirmOrder />} />
-        {stripeApiKey && (
-          <Elements stripe={loadStripe(stripeApiKey)}>
-            <Route path="/payment" element={<Payment />} />
-          </Elements>
-        )}
       </Routes>
     </>
   );
