@@ -5,9 +5,14 @@ const sendEmail = require("../utils/sendEmail");
 
 // user registration
 exports.registerUser = async (req, res, next) => {
-  const { firstName, lastName, email, password } = req.body;
+  const { firstName, email, password } = req.body;
 
-  const user = await User.create({ firstName, lastName, email, password });
+  const user = await User.create({
+    firstName,
+    email,
+    password,
+  });
+
   console.log(user, "user", req.body, "req.bod");
   passToken(user, 201, res);
 };

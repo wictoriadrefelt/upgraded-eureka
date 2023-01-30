@@ -3,6 +3,7 @@ import Layout from "./components/view/Layout.jsx";
 import React, { useState, useRef, Fragment } from "react";
 import Modal from "./components/view/Modal.jsx";
 import { useCookies } from "react-cookie";
+import UserOptions from "./components/pages/UserOptions";
 import "./Styles/App.css";
 import { useSelector } from "react-redux";
 
