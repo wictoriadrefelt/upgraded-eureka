@@ -17,7 +17,6 @@ const Start = () => {
     }
     dispatch(getProducts());
   }, [dispatch, error]);
-  console.log(products);
   return (
     <>
       <Header />

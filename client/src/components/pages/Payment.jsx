@@ -48,11 +48,7 @@ const Payment = () => {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await axios.post(
-        "/api/v1/payment/process",
-        paymentData,
-        config
-      );
+      const { data } = await axios.post("/api/v1/payment", paymentData, config);
 
       const client_secret = data.client_secret;
 
@@ -97,22 +93,16 @@ const Payment = () => {
   };
 
   return (
-    <Fragment>
-      <MetaData title="Payment" />
-
-      <div className="paymentContainer">
-        <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
-          <Typography>Card Info</Typography>
-
-          <input
-            type="submit"
-            value={`Pay - ₹${orderInfo && orderInfo.totalPrice}`}
-            ref={payBtn}
-            className="paymentFormBtn"
-          />
-        </form>
-      </div>
-    </Fragment>
+    <div className="paymentContainer">
+      <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
+        <input
+          type="submit"
+          value={`Pay - ₹${orderInfo && orderInfo.totalPrice}`}
+          ref={payBtn}
+          className="paymentFormBtn"
+        />
+      </form>
+    </div>
   );
 };
 
