@@ -8,7 +8,7 @@ exports.processPayment = async (req, res, next) => {
       company: "verySerious.ldt",
     },
   });
-
+  console.log(amount);
   res
     .status(200)
     .json({ success: true, client_secret: myPayment.client_secret });

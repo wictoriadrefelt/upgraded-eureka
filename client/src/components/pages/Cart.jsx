@@ -38,7 +38,6 @@ const Cart = () => {
   const [accepted, setAccepted] = useState(false);
 
   const handleAccept = (accept) => {
-    console.log(cartItems);
     setAccepted(accept);
   };
 
@@ -84,7 +83,11 @@ const Cart = () => {
               {cartItems &&
                 cartItems.map((item) => (
                   <div className="cartItem" key={item.product}>
-                    <CartItemCard item={item} deleteItem={deleteItem} />
+                    <CartItemCard
+                      item={item}
+                      deleteItem={deleteItem}
+                      key={"_id"}
+                    />
                     <div className="cartDetails">
                       <div className="btns">
                         <button

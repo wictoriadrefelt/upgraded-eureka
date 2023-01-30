@@ -21,6 +21,7 @@ const ConfirmOrder = () => {
   console.log(user.firstName);
 
   const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postcode}, ${shippingInfo.country}`;
+  console.log(address);
 
   const proceedToPayment = () => {
     const data = {
@@ -32,11 +33,13 @@ const ConfirmOrder = () => {
     sessionStorage.setItem("orderInfo", JSON.stringify(data));
 
     navigate("/payment");
+    console.log("hej");
   };
 
   return (
     <Fragment>
       {user.firstName}
+
       <button onClick={proceedToPayment}>Proceed To Payment</button>
     </Fragment>
   );

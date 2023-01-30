@@ -1,4 +1,9 @@
-import {} from "../constants/orderActionTypes";
+import {
+  CREATE_ORDER_REQUEST,
+  CREATE_ORDER_FAIL,
+  CREATE_ORDER_SUCCESS,
+  CLEAR_ERRORS,
+} from "../constants/orderActionTypes";
 
 export const newOrderReducer = (state = {}, action) => {
   switch (action.type) {

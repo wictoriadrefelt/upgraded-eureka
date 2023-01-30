@@ -1,11 +1,9 @@
-import React, { Fragment, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
 import {
   CardNumberElement,
-  CardCvcElement,
-  CardExpiryElement,
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
@@ -48,11 +46,7 @@ const Payment = () => {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await axios.post(
-        "/api/v1/payment/process",
-        paymentData,
-        config
-      );
+      const { data } = await axios.post("/api/v1/payment", paymentData, config);
 
       const client_secret = data.client_secret;
 
@@ -87,7 +81,7 @@ const Payment = () => {
 
           console.log("success");
         } else {
-          console.log("There's some issue while processing payment ");
+          console.log("Failed");
         }
       }
     } catch (error) {
@@ -97,22 +91,17 @@ const Payment = () => {
   };
 
   return (
-    <Fragment>
-      <MetaData title="Payment" />
-
-      <div className="paymentContainer">
-        <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
-          <Typography>Card Info</Typography>
-
-          <input
-            type="submit"
-            value={`Pay - ₹${orderInfo && orderInfo.totalPrice}`}
-            ref={payBtn}
-            className="paymentFormBtn"
-          />
-        </form>
-      </div>
-    </Fragment>
+    <div>
+      <form className="form--payment" onSubmit={(e) => submitHandler(e)}>
+        <div>{orderInfo && orderInfo.totalPrice}</div>
+        <input
+          type="submit"
+          value={`Click me`}
+          ref={payBtn}
+          className="form--payment--button"
+        />
+      </form>
+    </div>
   );
 };
 

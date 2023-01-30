@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Start from "../pages/Start";
 import Contact from "../pages/ContactUs";
 import ProductDetails from "../pages/ProductDetails";
@@ -24,6 +24,7 @@ const Content = () => {
     const { data } = await axios.get(
       "http://localhost:3001/api/v1/stripeapikey"
     );
+    /// THIS WORKS
     console.log(data, "hej");
 
     setStripeApiKey(data.stripeApiKey);
@@ -34,6 +35,23 @@ const Content = () => {
   return (
     <>
       <Routes>
+         
+        <React.Fragment>
+              
+          {stripeApiKey && (
+            <Route
+              path="/payment"
+              element={
+                <Elements stripe={loadStripe(stripeApiKey)}>
+                              
+                  <Payment />
+                            
+                </Elements>
+              }
+            />
+          )}
+            
+        </React.Fragment>
         <Route path="*" element={<Start />} />
         <Route path="/products/" element={<Products />} />
         <Route path="/product/:id" element={<ProductDetails />} />
@@ -43,6 +61,8 @@ const Content = () => {
         <Route path="/login" element={<LoginAndRegister />} />
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/confirm" element={<ConfirmOrder />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/success" element={<Success />} />
       </Routes>
     </>
   );
