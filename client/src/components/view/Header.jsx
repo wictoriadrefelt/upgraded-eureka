@@ -32,16 +32,21 @@ const Header = () => {
               <Link className="headerDiv" to={`/cart/`}>
                 <img className="cartImg" src={cartLogo} alt="" />
               </Link>
-              <div className="loginDiv headerDiv">Login</div>
-              <Link className="headerDiv" to={`/contact/`}>
-                <img
-                  className="contactImg"
-                  src={contactPhone}
-                  alt="contactPhone"
-                />
-              </Link>
             </div>
           </div>
+        </div>
+        <div className="headerDiv">
+          <div className="header-column headerDiv">
+            <Link className="" to={`/login/`}>
+              <div className="about">Login</div>
+            </Link>
+            <Link className="" to={`/aboutus/`}>
+              <div className="about">AboutUs</div>
+            </Link>
+          </div>
+          <Link className="headerDiv" to={`/contact/`}>
+            <img className="contactImg" src={contactPhone} alt="contactPhone" />
+          </Link>
         </div>
       </div>
     </>
