@@ -6,16 +6,19 @@
 .terms-container {
   position: absolute;
   z-index: 10;
-  top: 16vh;
-  left: 18vw;
+  top: -10vh;
+  left: 16vw;
   font-family: arcade;
+  display: flex;
 }
 
 .termsContent {
   color: white;
   position: absolute;
   z-index: 10;
-  width: 600px;
+  left: -7vw;
+  top: -50vh;
+  width: 80vw;
   background-color: black;
   font-family: arcade;
 }
@@ -30,14 +33,15 @@
   font-family: arcade;
 }
 
-@media (max-width: 800px) {
-  .termsContent {
-    width: 300px;
-  }
+@media (max-width: 600px) {
 }
 
 @media (max-width: 480px) {
   .terms-container {
     left: 0;
   }
+}
+
+.visible {
+  z-index: 1000;
 }

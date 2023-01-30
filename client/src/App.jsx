@@ -33,25 +33,27 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        {!isAccepted && (
-          <div className="cookie-accept">
-            <h3>
-              {" "}
-              We use cookies to enhance your browsing experience and to
-              personalize content and ads. By continuing to use our website, you
-              consent to our use of cookies.
-            </h3>
-            {/* {cookies.user && <p>{cookies.user}</p>} */}
-            <div className="cookie-btn-container">
-              <button className="cookie-btn" onClick={handleClick}>
-                I accept
-              </button>
-              <button className="cookie-btn" onClick={handleDecline}>
-                I don't accept
-              </button>
+        {
+          /* ! */ isAccepted && (
+            <div className="cookie-accept">
+              <h3>
+                {" "}
+                We use cookies to enhance your browsing experience and to
+                personalize content and ads. By continuing to use our website,
+                you consent to our use of cookies.
+              </h3>
+              {/* {cookies.user && <p>{cookies.user}</p>} */}
+              <div className="cookie-btn-container">
+                <button className="cookie-btn" onClick={handleClick}>
+                  I accept
+                </button>
+                <button className="cookie-btn" onClick={handleDecline}>
+                  I don't accept
+                </button>
+              </div>
             </div>
-          </div>
-        )}
+          )
+        }
       </div>
       <Layout />
     </BrowserRouter>

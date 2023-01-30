@@ -9,33 +9,25 @@ import { Link } from "react-router-dom";
 import Header from "../view/Header";
 
 const ProductDetails = () => {
+  document.title = "IneedIT SingleProduct";
   const { id } = useParams();
   const dispatch = useDispatch();
 
   const [quantity, setQuantity] = useState(1);
 
-  const increaseQuantity = () => {
-    if (product.unit <= quantity) {
-      return;
-    }
-
-    const qty = quantity + 1;
-    setQuantity(qty);
-    console.log(qty);
-  };
-
-  const decreaseQuantity = () => {
-    if (1 >= quantity) {
-      return;
-    }
-    const qty = quantity - 1;
-    setQuantity(qty);
-    console.log(qty);
-  };
+  useEffect(() => {
+    dispatch(addItemsToCart(id, quantity));
+  }, [quantity, dispatch, id]);
 
   const addToCartHandler = () => {
-    dispatch(addItemsToCart(id, quantity));
-    console.log("product added");
+    if (quantity) {
+      if (quantity >= product.unit) {
+        return;
+      } else {
+        dispatch(addItemsToCart(id, quantity));
+        setQuantity(quantity + 1);
+      }
+    }
   };
 
   const { product } = useSelector((state) => state.singleProduct);
@@ -45,7 +37,7 @@ const ProductDetails = () => {
 
   return (
     <>
-      <Header></Header>
+      <Header />
       <div className="singlepageMain">
         <div className="singlepageContainer">
           <div className="singlepageDiv">
@@ -72,6 +64,7 @@ const ProductDetails = () => {
                 <button
                   className="singlepageCartBtn"
                   onClick={addToCartHandler}
+                  disabled={quantity >= product.unit}
                 >
                   Add to Cart
                 </button>

@@ -2,8 +2,9 @@
   position: absolute;
   width: 80vw;
   z-index: 999999;
+  min-height: 500px;
   color: white;
-  top: 66vh;
+  top: 20vh;
   left: 10vw;
   right: 10vw;
   border: solid;
