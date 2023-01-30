@@ -42,7 +42,7 @@ exports.loginUser = async (req, res, next) => {
   const isPasswordMatched = await user.comparePassword(password);
 
   if (!isPasswordMatched) {
-    console.log(isPasswordMatched);
+    console.log(isPasswordMatched, "false mf");
     return next(
       new ErrorHandler("Invalid email or password, so fuck you", 401)
     );
