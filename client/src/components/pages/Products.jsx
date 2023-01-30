@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import ProductCard from "./ProductCard";
 
 const Products = () => {
+  document.title = "IneedIT Home";
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
   useEffect(() => {

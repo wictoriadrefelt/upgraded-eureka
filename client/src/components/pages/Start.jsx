@@ -8,6 +8,7 @@ import StartpageLayout from "../view/StartpageLayout";
 import Header from "../view/Header";
 
 const Start = () => {
+  document.title = "IneedIT";
   const dispatch = useDispatch();
   const { loading, error, products } = useSelector((state) => state.products);
   useEffect(() => {

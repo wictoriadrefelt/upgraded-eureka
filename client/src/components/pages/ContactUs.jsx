@@ -1,8 +1,12 @@
 import React, { useRef, useEffect } from "react";
 import "../../Styles/contact.css";
+import Header from "../view/Header";
+import PacmansBuddies from "../../assets/pacman.png";
+import Pacman from "../../assets/pac.png";
 
 const Contact = () => {
   {
+    document.title = "IneedIT ContactUs";
     const formRef = useRef(null);
 
     useEffect(() => {
@@ -21,20 +25,16 @@ const Contact = () => {
       };
 
       formRef.current.addEventListener("submit", handleSubmit);
-
-      return () => {
-        formRef.current.removeEventListener("submit", handleSubmit);
-      };
     }, []);
 
     return (
       <>
-        <main className="cartpageMain">
+        <Header />
+        <div className="cartpageMain">
+          <div className="stars"></div>
+          <div className="twinkleMask"></div>
+          <div className="twinkleMask2"></div>
           <div className="container">
-            <div className="stars"></div>
-            <div className="twinkleMask"></div>
-            <div className="twinkleMask2"></div>
-
             <div className="containerDiv">
               <div className="contentDiv">
                 <div className="right-side">
@@ -71,14 +71,14 @@ const Contact = () => {
                     </div>
                   </form>
                 </div>
-                <img className="hunted" src="./src/assets/pac.png" alt="" />
+                <img className="hunted" src={Pacman} alt="" />
               </div>
             </div>
           </div>
           <div className="bottomDiv">
-            <img className="imgs" src="./src/assets/pacman.png" alt="" />
+            <img className="imgs" src={PacmansBuddies} alt="" />
           </div>
-        </main>
+        </div>
       </>
     );
   }

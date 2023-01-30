@@ -1,6 +1,6 @@
 .cartPageMain {
   width: 100vw;
-  height: 100vh;
+  margin-top: 100px;
   height: calc(100vh - 100px);
 }
 
@@ -80,14 +80,14 @@
 
 .rightFooterImg {
   position: absolute;
-  z-index: 5;
+  z-index: 7;
   bottom: 0;
   right: 1vw;
 }
 
 .leftFooterImg {
   position: absolute;
-  z-index: 5;
+  z-index: 7;
   bottom: 0;
   left: 1vw;
 }
@@ -106,10 +106,12 @@
 
 .toCheckout {
   position: absolute;
-  z-index: 5;
+  z-index: 6;
   left: 1vw;
+  height: 100px;
   right: 1vw;
   margin: auto;
+
   bottom: 0;
   text-align: center;
   background-color: black;
@@ -125,6 +127,7 @@
 .checkoutBtn {
   font-size: 28px;
   margin: 0;
+  color: coral;
 }
 
 .checkoutClickMe {
@@ -174,9 +177,22 @@
   margin-bottom: 10px;
 }
 
-.totalPriceCart {
+.fixed-center {
   display: flex;
-  justify-content: end;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.totalPriceCart {
+  color: white;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.priceFontSize {
+  margin-right: 5px;
+  font-size: 20px;
 }
 
 @media (max-width: 800px) {
@@ -188,6 +204,13 @@
   }
   .checkoutBtn {
     font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .imgRight,
+  .imgLeft {
+    display: none;
   }
 }
 
@@ -204,8 +227,8 @@
   }
 }
 
-.flower {
-  animation: MoveUpDown 5s linear infinite;
+.flower-5s {
+  animation: MoveUpDown-5s 5s linear infinite;
   position: absolute;
   z-index: -1;
   left: 8%;
@@ -214,10 +237,30 @@
   height: 150px;
 }
 
-@keyframes MoveUpDown {
+@keyframes MoveUpDown-5s {
   0%,
   100% {
     top: 0;
+  }
+  50% {
+    top: -140px;
+  }
+}
+
+.flower-8s {
+  animation: MoveUpDown-8s 8s linear infinite;
+  position: absolute;
+  z-index: -1;
+  left: 8%;
+  top: -100px;
+  width: 78%;
+  height: 150px;
+}
+
+@keyframes MoveUpDown-8s {
+  0%,
+  100% {
+    top: 40px;
   }
   50% {
     top: -140px;
