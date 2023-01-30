@@ -1,0 +1,39 @@
+@font-face {
+  font-family: pokeFont;
+  src: url("../assets/Fonts/PokemonGb-RAeo(2).ttf");
+}
+
+.aboutUsMain {
+  height: calc(100vh - 100px);
+  width: 100vw;
+  margin-top: 100px;
+}
+
+.aboutUsContainer {
+  max-width: 600px;
+  margin: auto;
+  border: dashed;
+  border-color: white;
+  border-radius: 15px;
+  margin-top: 140px;
+  padding: 30px;
+  min-width: 270px;
+}
+
+.aboutUsTitle {
+  color: white;
+  font-family: arcade;
+}
+
+.aboutUsParagraph {
+  font-family: arcade;
+  color: white;
+}
+
+.backBtn {
+  color: white;
+  width: 100px;
+  margin: auto;
+  padding: 10px;
+  font-family: arcade;
+}
