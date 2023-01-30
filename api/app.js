@@ -17,6 +17,9 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+require("dotenv").config({ path: path.join(__dirname, ".env") });
+//const stripe = require("stripe")(STRIPE_SECRET_KEY);
+
 // THIS REMOVES ALL PRODUCTS
 
 //app.use(cookieParse);
@@ -45,13 +48,14 @@ app.get("*", (req, res) => {
   dotenv.config({ path: path.resolve(__dirname, "./config/.env") });
 } */
 
-require("dotenv").config({ path: path.join(__dirname, ".env") });
-
 const product = require("./routes/productRoute");
 const order = require("./routes/orderRoute");
 const user = require("./routes/userRoute");
+const payment = require("./routes/paymentRoute");
 
 app.use("/api/v1", product);
 app.use("/api/v1", order);
 app.use("/api/v1", user);
+app.use("/api/v1", payment);
+
 module.exports = app;
