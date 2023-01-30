@@ -9,6 +9,7 @@ import Starwars from "../pages/comp";
 import LoginAndRegister from "../pages/LoginandRegistration";
 import Shipping from "../pages/Shipping";
 import ConfirmOrder from "../pages/ConfirmOrder";
+import AboutUs from "../pages/aboutUs";
 
 const Content = () => {
   return (
@@ -23,6 +24,7 @@ const Content = () => {
         <Route path="/login" element={<LoginAndRegister />} />
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/confirm" element={<ConfirmOrder />} />
+        <Route path="/aboutus" element={<AboutUs />} />
       </Routes>
     </>
   );
