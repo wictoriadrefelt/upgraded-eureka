@@ -2,7 +2,7 @@ import React, { Link, useState } from "react";
 import "../../Styles/cart.css";
 import CartItemCard from "./CartItemCard";
 import { useSelector, useDispatch } from "react-redux";
-import { addItemsToCart, removeItemFromCart } from "../../actions/cartAction";
+import { addItemsToCart, removeItemFromCart, decreaseItemsToCart } from "../../actions/cartAction";
 import Header from "../view/Header";
 import tallpipe from "./../../assets/Bg/tallpipe.png";
 import shortpipe from "./../../assets/Bg/shortpipe.png";
@@ -15,26 +15,18 @@ const Cart = () => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
 
-  const increaseQuantity = (id, quantity, unit) => {
-    const newQty = quantity + 1;
-    if (unit <= quantity) {
-      return;
-    } else {
-      dispatch(addItemsToCart(id, newQty));
-    }
+  const increaseQuantity = (product) => {
+    // Function for checking unit >= quantity
+    dispatch(addItemsToCart(product));
+  };
+  
+  const decreaseQuantity = (product) => {
+    // Function for checking unit >= quantity
+    dispatch(decreaseItemsToCart(product));
   };
 
-  const decreaseQuantity = (id, quantity, unit) => {
-    const newQty = quantity - 1;
-    if (1 >= quantity) {
-      return;
-    } else {
-      dispatch(addItemsToCart(id, newQty));
-    }
-  };
-
-  const deleteItem = (id) => {
-    dispatch(removeItemFromCart(id));
+  const deleteItem = (product) => {
+    dispatch(removeItemFromCart(product));
   };
 
   const [accepted, setAccepted] = useState(false);
@@ -92,11 +84,7 @@ const Cart = () => {
                         <button
                           className="amount add"
                           onClick={() =>
-                            decreaseQuantity(
-                              item.product,
-                              item.quantity,
-                              item.unit
-                            )
+                            decreaseQuantity(item.product)
                           }
                         >
                           -
@@ -104,20 +92,17 @@ const Cart = () => {
                         <p className="amountNumber">{item.quantity}</p>
                         <button
                           className="amount decrease"
-                          disabled={item.quantity >= item.unit}
-                          onClick={() =>
-                            increaseQuantity(
-                              item.product,
-                              item.quantity,
-                              item.unit
-                            )
-                          }
+                          /* disabled={item.quantity >= item.unit} */
+                          onClick={() => {
+                            console.log("asdasd")
+                            increaseQuantity(item.product)
+                          }}
                         >
                           +
                         </button>
                       </div>
                       <div className="itemPrice">
-                        <p>{item.price * item.quantity}</p>
+                        <p>{item.product.price * item.quantity}</p>
                       </div>
                     </div>
                     {/* PRICE FOR ONE PRODUCT  */}
@@ -128,7 +113,7 @@ const Cart = () => {
                 <p className="priceFontSize">Total price:</p>
                 <p className="priceFontSize">
                   {cartItems.reduce(
-                    (acc, item) => acc + item.quantity * item.price,
+                    (acc, item) => acc + item.quantity * item.product.price,
                     0
                   )}
                 </p>

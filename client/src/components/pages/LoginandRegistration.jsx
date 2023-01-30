@@ -1,9 +1,11 @@
+
 import React, { Fragment, useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 
 const LoginAndRegister = () => {
+ document.title = "IneedIT Login & registration";
   const dispatch = useDispatch();
 
   const { error, loading, isAuthenticated } = useSelector(

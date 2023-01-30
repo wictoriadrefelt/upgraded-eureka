@@ -5,29 +5,47 @@ import {
 } from "../constants/cartActionTypes";
 import axios from "axios";
 
-export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
-  const { data } = await axios.get(
-    `http://localhost:3001/api/v1/product/${id}`
-  );
+export const addItemsToCart = (product) => async (dispatch, getState) => {
+  // cartItems can be string or null
+  let cartItems = localStorage.getItem("cartItems")
+  cartItems = cartItems ? JSON.parse(cartItems) : null
 
   dispatch({
     type: ADD_TO_CART,
     payload: {
-      product: data.product._id,
-      name: data.product.name,
-      price: data.product.price,
-      image: data.product.image,
-      unit: data.product.unit,
-      quantity,
+      product: product,
+      quantity: (cartItems && cartItems.find(cartItem => cartItem.product._id === product._id)?.quantity + 1) || 1,
     },
   });
+
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
 
-export const removeItemFromCart = (id) => async (dispatch, getState) => {
+export const decreaseItemsToCart = (product) => async (dispatch, getState) => {
+
+  // cartItems can be string or null
+  let cartItems = localStorage.getItem("cartItems")
+  cartItems = cartItems ? JSON.parse(cartItems) : null
+
+  let cartItem = cartItems ? cartItems.find(cartItem => cartItem.product._id === product._id) : undefined
+
+  if(!cartItem || cartItem.quantity == 1) { return }
+
+  dispatch({
+    type: ADD_TO_CART,
+    payload: {
+      product: product,
+      quantity: cartItem.quantity - 1,
+    },
+  });
+
+  localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
+};
+
+export const removeItemFromCart = (product) => async (dispatch, getState) => {
   dispatch({
     type: REMOVE_FROM_CART,
-    payload: id,
+    payload: product,
   });
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
@@ -37,5 +55,9 @@ export const saveShippingInfo = (data) => async (dispatch) => {
     type: SAVE_SHIPPING_INFO,
     payload: data,
   });
-  localStorage.setItem("shippingInfo", JSON.stringify(data));
+  localStorage.setItem(
+    "shippingInfo",
+    JSON.stringify(getState().cart.shippingInfo)
+  );
 };
+

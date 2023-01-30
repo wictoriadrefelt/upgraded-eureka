@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 
-const Terms = () => {
+const TermsAndConditions = ({ onAccept }) => {
+  document.title = "IneedIT Terms and condition";
   const [isOpen, setIsOpen] = useState(false);
-  const [isAgreed, setIsAgreed] = useState(false);
+  const [accepted, setAccepted] = useState(false);
+
+  const handleChange = (event) => {
+    setAccepted(event.target.checked);
+    onAccept(event.target.checked);
+  };
 
   return (
     <div className="terms-container">
@@ -36,18 +42,21 @@ const Terms = () => {
           </p>
         </div>
       )}
-      <input
-        className="checkBoxTerms"
-        type="checkbox"
-        id="terms-checkbox"
-        checked={isAgreed}
-        onChange={() => setIsAgreed(!isAgreed)}
-      />
-      <label className="agreeLabel" htmlFor="terms-checkbox">
-        I agree to the terms and conditions
-      </label>
+
+      <div className="agreeLabel">
+        <input
+          className="checkBoxTerms"
+          type="checkbox"
+          id="terms-checkbox"
+          checked={accepted}
+          onChange={handleChange}
+        />
+        <label htmlFor="terms-and-conditions">
+          I accept the terms and conditions
+        </label>
+      </div>
     </div>
   );
 };
 
-export default Terms;
+export default TermsAndConditions;

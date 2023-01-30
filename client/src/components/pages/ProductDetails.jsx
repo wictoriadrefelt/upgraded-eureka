@@ -13,27 +13,15 @@ const ProductDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  const [quantity, setQuantity] = useState(1);
-
-  useEffect(() => {
-    dispatch(addItemsToCart(id, quantity));
-  }, [quantity, dispatch, id]);
-
-  const addToCartHandler = () => {
-    if (quantity) {
-      if (quantity >= product.unit) {
-        return;
-      } else {
-        dispatch(addItemsToCart(id, quantity));
-        setQuantity(quantity + 1);
-      }
-    }
-  };
-
   const { product } = useSelector((state) => state.singleProduct);
+
   useEffect(() => {
     dispatch(getSingleProduct(id));
   }, [dispatch, id]);
+
+  const addToCartHandler = () => {
+    dispatch(addItemsToCart(product));
+  }
 
   return (
     <>
@@ -64,7 +52,7 @@ const ProductDetails = () => {
                 <button
                   className="singlepageCartBtn"
                   onClick={addToCartHandler}
-                  disabled={quantity >= product.unit}
+                  //disabled={quantity >= product.unit}
                 >
                   Add to Cart
                 </button>
