@@ -60,3 +60,4 @@ export const saveShippingInfo = (data) => async (dispatch) => {
     JSON.stringify(getState().cart.shippingInfo)
   );
 };
+

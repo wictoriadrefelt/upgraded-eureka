@@ -12,7 +12,7 @@ exports.newOrder = async (req, res, next) => {
     shippingPrice,
     totalPrice,
     paidAt: Date.now(),
-    user: req.params._id,
+    user: req.user._id,
   });
   res.status(201).json({
     success: true,
