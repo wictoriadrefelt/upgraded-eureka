@@ -1,11 +1,9 @@
-import React, { Fragment, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
 import {
   CardNumberElement,
-  CardCvcElement,
-  CardExpiryElement,
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
@@ -83,7 +81,7 @@ const Payment = () => {
 
           console.log("success");
         } else {
-          console.log("There's some issue while processing payment ");
+          console.log("Failed");
         }
       }
     } catch (error) {
@@ -93,13 +91,14 @@ const Payment = () => {
   };
 
   return (
-    <div className="paymentContainer">
-      <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
+    <div>
+      <form className="form--payment" onSubmit={(e) => submitHandler(e)}>
+        <div>{orderInfo && orderInfo.totalPrice}</div>
         <input
           type="submit"
-          value={`Pay - ₹${orderInfo && orderInfo.totalPrice}`}
+          value={`Click me`}
           ref={payBtn}
-          className="paymentFormBtn"
+          className="form--payment--button"
         />
       </form>
     </div>
