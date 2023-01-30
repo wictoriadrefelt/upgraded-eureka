@@ -1,12 +1,16 @@
 import React, { Fragment, Typography, Link } from "react";
 import { useSelector } from "react-redux";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const ConfirmOrder = () => {
+  const navigate = useNavigate();
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
 
+  console.log(cartItems);
+
   const subtotal = cartItems.reduce(
-    (acc, item) => acc + item.quantity * item.price,
+    (acc, item) => acc + item.quantity * item.product.price,
     0
   );
 
@@ -14,7 +18,9 @@ const ConfirmOrder = () => {
 
   const totalPrice = subtotal + shippingCharges;
 
-  const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pinCode}, ${shippingInfo.country}`;
+  console.log(user.firstName);
+
+  const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postcode}, ${shippingInfo.country}`;
 
   const proceedToPayment = () => {
     const data = {
@@ -25,11 +31,12 @@ const ConfirmOrder = () => {
 
     sessionStorage.setItem("orderInfo", JSON.stringify(data));
 
-    console.log("saved");
+    navigate("/payment");
   };
 
   return (
     <Fragment>
+      {user.firstName}
       <button onClick={proceedToPayment}>Proceed To Payment</button>
     </Fragment>
   );

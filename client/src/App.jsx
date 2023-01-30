@@ -1,12 +1,15 @@
 import { BrowserRouter } from "react-router-dom";
 import Layout from "./components/view/Layout.jsx";
-import React, { useState, useRef, Fragment } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Modal from "./components/view/Modal.jsx";
 import { useCookies } from "react-cookie";
 import "./Styles/App.css";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 function App() {
+  const [stripeApiKey, setStripeApiKey] = useState("");
+
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
   const [isAccepted, setIsAccepted] = useState(false);
   const { isAuthenticated, user } = useSelector((state) => state.user);
