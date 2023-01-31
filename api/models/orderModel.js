@@ -36,7 +36,7 @@ const OrderSchema = mongoose.Schema({
   itemsPrice: { type: Number },
   shippingPrice: { type: Number },
   totalPrice: { type: Number },
-  orderStatus: { type: String },
+  orderStatus: { type: String, required: true, default: "Processing" },
   deliveredAt: { type: Date },
 });
 

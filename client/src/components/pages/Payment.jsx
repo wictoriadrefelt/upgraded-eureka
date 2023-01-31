@@ -86,16 +86,14 @@ const Payment = () => {
         payBtn.current.disabled = false;
         console.log("error");
       } else {
-        if (result) {
+        if (result.paymentIntent.status === "succeeded") {
           console.log(result);
           order.paymentInfo = {
             id: result.paymentIntent.id,
             status: result.paymentIntent.status,
           };
-        }
-        if (result) {
-          dispatch(createOrder(order));
 
+          dispatch(createOrder(order));
           navigate("/success");
         } else {
           console.log("Failed");
@@ -103,7 +101,7 @@ const Payment = () => {
       }
     } catch (error) {
       payBtn.current.disabled = false;
-      console.log(error);
+      console.log(error.response.data.message);
     }
   };
 

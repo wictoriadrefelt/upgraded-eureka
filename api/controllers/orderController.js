@@ -5,6 +5,7 @@ const ErrorHandler = require("../utils/errorhandler");
 exports.newOrder = async (req, res, next) => {
   const { shippingInfo, orderItems, paymentInfo, shippingPrice, totalPrice } =
     req.body;
+  console.log(req.body);
   const order = await Order.create({
     shippingInfo,
     orderItems,
@@ -90,5 +91,14 @@ exports.deleteOrder = async (req, res, next) => {
   res.status(200).json({
     success: true,
     order,
+  });
+};
+
+exports.loggedInOrders = async (req, res, next) => {
+  const orders = await Order.find({ user: req.user._id });
+
+  res.status(200).json({
+    success: true,
+    orders,
   });
 };
