@@ -62,7 +62,7 @@
 }
 
 .singletitle {
-  font-size: 22px;
+  font-size: 18px;
   margin: 0;
   color: black;
   font-family: pokeFont;
@@ -71,13 +71,13 @@
 .singleDesc {
   color: black;
   font-family: pokeFont;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .singlePrice {
   color: black;
   font-family: pokeFont;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .inline-block {
@@ -120,7 +120,7 @@
 }
 
 .singlepageCartBtn:hover {
-  background-color: aquamarine;
+  background-color: grey;
   cursor: pointer;
 }
 
@@ -133,6 +133,29 @@
   color: white;
   font-size: 16px;
   font-family: pokeFont;
+}
+
+.back:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+@media (max-width: 1010px) {
+  .singletitle {
+    font-size: 16px;
+  }
+
+  .singleDesc {
+    color: black;
+    font-family: pokeFont;
+    font-size: 14px;
+  }
+
+  .singlePrice {
+    color: black;
+    font-family: pokeFont;
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 800px) {

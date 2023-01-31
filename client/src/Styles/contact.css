@@ -153,8 +153,10 @@
   .containerDiv {
     padding: 20px 0 30px 0;
   }
-  .hunted {
-    left: -25px !important;
+
+  .right-side .input-box input,
+  .right-side .input-box textarea {
+    width: 250px;
   }
 }
 

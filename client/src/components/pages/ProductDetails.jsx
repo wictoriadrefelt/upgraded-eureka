@@ -21,7 +21,7 @@ const ProductDetails = () => {
 
   const addToCartHandler = () => {
     dispatch(addItemsToCart(product));
-  }
+  };
 
   return (
     <>

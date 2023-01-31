@@ -1,0 +1,122 @@
+@font-face {
+  font-family: arcade;
+  src: url("../assets/Fonts/ARCADECLASSIC.TTF");
+}
+
+.LoginSignUpMain {
+  width: 100vw;
+  height: calc(100vh -100px);
+  margin-top: 100px;
+}
+
+.LoginSignUpContainer {
+  position: absolute;
+  z-index: 10;
+  border-right: dashed;
+  border-top: dashed;
+  border-bottom: dashed;
+  border-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 600px;
+  min-width: 200px;
+  margin: auto;
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-around;
+  background-color: transparent;
+  color: white;
+  flex-wrap: wrap;
+  font-family: arcade;
+  left: 1vw;
+  right: 1vw;
+}
+
+.LoginSignUpBox {
+  display: flex;
+  flex-direction: column;
+  font-family: arcade;
+}
+
+.login_signUp_toggle {
+  display: flex;
+  justify-content: space-around;
+}
+
+.signUp_box,
+.login_box {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  align-items: center;
+  font-family: arcade;
+  justify-content: space-between;
+}
+
+.loginForm,
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  gap: 15px;
+  font-family: arcade;
+}
+
+.signUpName,
+.signUpEmail,
+.signUpPassword,
+.loginEmail,
+.loginPassword {
+  width: 100%;
+  height: 25px;
+  background-color: transparent;
+  border: dashed;
+  border-color: white;
+  border-radius: 5px;
+  color: white;
+  font-family: arcade;
+  border-width: 2px;
+  padding: 4px;
+}
+
+.forgotP {
+  color: white;
+}
+
+.pacman_login {
+  position: absolute;
+  left: 25px;
+  top: -9px;
+  z-index: 11;
+  height: 30px;
+  left: -18px;
+  transform: rotate(-19deg);
+}
+
+.signUpBtn,
+.loginBtn {
+  margin-top: 15px;
+  width: fit-content;
+  font-family: arcade;
+  background-color: transparent;
+  color: coral;
+  border: none;
+  font-size: 20px;
+}
+
+@media (max-width: 660px) {
+  .LoginSignUpContainer {
+    max-width: 300px;
+    padding: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 200px, 0;
+  }
+
+  .signUp_box,
+  .login_box {
+    width: 100%;
+    min-width: 200px;
+  }
+}
