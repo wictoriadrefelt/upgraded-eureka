@@ -11,7 +11,7 @@ const { authorizedRoles, isAuthenticated } = require("../middleware/auth");
 
 const router = express.Router();
 
-router.route("/order/new").post(isAuthenticated, newOrder);
+router.route("/order/new").post(/* isAuthenticated, */ newOrder);
 router.route("/order/:id").get(getOrderById);
 router.route("/orders").get(getAllOrders);
 router.route("/admin/orders").get(authorizedRoles("admin"), getAllOrders);

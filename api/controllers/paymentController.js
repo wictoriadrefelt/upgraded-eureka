@@ -1,4 +1,8 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const dotenv = require("dotenv");
+
+const stripe = require("stripe")(
+  "sk_test_51LgOtTKWccXv1xw6qSObLelDC0S5zifbdX9sA3VXbxPTJGBCeycWQDlQ96AaXanpcRoi97KwuKrnoEVSjhbtGBSQ00jJJQjbXa"
+);
 
 exports.processPayment = async (req, res, next) => {
   const myPayment = await stripe.paymentIntents.create({
@@ -8,7 +12,7 @@ exports.processPayment = async (req, res, next) => {
       company: "verySerious.ldt",
     },
   });
-  console.log(amount);
+
   res
     .status(200)
     .json({ success: true, client_secret: myPayment.client_secret });
