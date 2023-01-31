@@ -1,0 +1,33 @@
+@font-face {
+  font-family: arcade;
+  src: url("../assets/Fonts/ARCADECLASSIC.TTF");
+}
+
+.confirmOrderPageMain {
+  height: 100vh;
+  width: 100vw;
+}
+
+.confirmOrderPageContainer {
+  min-width: 300px;
+  max-width: 600px;
+  margin: auto;
+  border: dashed;
+  border-color: white;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.successTitle {
+  color: white;
+  font-family: arcade;
+}
+
+.confirmOrderParagraph {
+  color: white;
+  font-family: arcade;
+}

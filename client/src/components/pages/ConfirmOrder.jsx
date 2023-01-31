@@ -1,6 +1,7 @@
 import React, { Fragment, Typography, Link } from "react";
 import { useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
+import "../../Styles/confirmOrder.css";
 
 const ConfirmOrder = () => {
   const navigate = useNavigate();
@@ -37,11 +38,24 @@ const ConfirmOrder = () => {
   };
 
   return (
-    <Fragment>
-      {user.firstName}
+    <>
+      <Fragment>
+        <div className="confirmOrderPageMain">
+          <div className="confirmOrderPageContainer">
+            <p className="confirmOrderParagraph">{user.firstName}</p>
+            <p className="confirmOrderParagraph">{shippingInfo.address}</p>
+            <p className="confirmOrderParagraph">{shippingInfo.city}</p>
+            <p className="confirmOrderParagraph">{shippingInfo.postcode}</p>
+            <p className="confirmOrderParagraph">{shippingInfo.country}</p>
+            <p className="confirmOrderParagraph">{shippingCharges}</p>
+            <p className="confirmOrderParagraph">{subtotal}</p>
+            <p className="confirmOrderParagraph">{totalPrice}</p>
+          </div>
 
-      <button onClick={proceedToPayment}>Proceed To Payment</button>
-    </Fragment>
+          <button onClick={proceedToPayment}>Proceed To Payment</button>
+        </div>
+      </Fragment>
+    </>
   );
 };
 
