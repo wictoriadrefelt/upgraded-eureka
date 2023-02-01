@@ -7,16 +7,32 @@
   position: absolute;
   z-index: 10;
   top: -10vh;
-  left: 16vw;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   font-family: arcade;
   display: flex;
+  width: 300px;
+}
+
+.collapsible {
+  background-color: transparent;
+  border: none;
+  color: coral;
+  font-family: arcade;
+}
+
+.collapsible:hover {
+  background-color: aqua;
+  cursor: pointer;
 }
 
 .termsContent {
   color: white;
   position: absolute;
   z-index: 10;
-  left: -7vw;
+  right: -25vw;
   top: -50vh;
   width: 80vw;
   background-color: black;
@@ -33,7 +49,16 @@
   font-family: arcade;
 }
 
+@media (max-width: 800px) {
+  .termsContent {
+    right: -20vw;
+  }
+}
+
 @media (max-width: 600px) {
+  .termsContent {
+    right: -10vw;
+  }
 }
 
 @media (max-width: 480px) {

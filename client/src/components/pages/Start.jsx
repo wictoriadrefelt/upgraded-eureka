@@ -1,7 +1,6 @@
 import { getProducts } from "../../actions/productAction";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import Products from "../pages/Products";
 import ProductCard from "./ProductCard";
 import "../../Styles/p.css";
 import StartpageLayout from "../view/StartpageLayout";

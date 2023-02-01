@@ -1,0 +1,132 @@
+@font-face {
+  font-family: arcade;
+  src: url("../src/assets/Fonts/ARCADECLASSIC.TTF");
+}
+
+.shipping--main {
+  height: calc(100vh - 100px);
+  width: 100vw;
+  margin-top: 100px;
+}
+
+.container--shipping {
+  width: 60%;
+  padding: 20px;
+  margin: auto;
+  z-index: 4;
+  max-width: 600px;
+  font-family: arcade;
+  border: dashed;
+  border-color: white;
+  border-radius: 15px;
+  border-width: 3px;
+}
+
+.box--shipping {
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: arcade;
+  color: white;
+}
+
+.heading-shipping {
+  font-size: 20px;
+}
+
+.form--shipping {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 60%;
+}
+
+.shippingInput {
+  background-color: transparent;
+  border: dashed;
+  border-color: white;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 14px;
+  padding: 3px;
+  color: white;
+  font-family: arcade;
+  height: 25px;
+}
+
+.shippingBtn {
+  background-color: transparent;
+  font-size: 30px;
+  padding: 3px;
+  border: none;
+  color: coral;
+  font-family: arcade;
+  margin-top: 30px;
+}
+
+.shippingBtn:hover {
+  background-color: aqua;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .form--shipping {
+    width: 90%;
+  }
+  .heading-shipping {
+    font-size: 16px;
+  }
+}
+
+body {
+  background: #000;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.stars,
+.twinkleMask,
+.twinkleMask2,
+.clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(100vh - 100px);
+  display: block;
+  margin-top: 100px;
+}
+
+.stars {
+  background: #000 url("https://wolf.drjm.co.uk/nightsky/stars.jpg") repeat top
+    center;
+  z-index: 1;
+}
+
+.twinkleMask {
+  background: transparent
+    url("https://wolf.drjm.co.uk/nightsky/twinklemask.png") repeat top center;
+  z-index: 2;
+  animation: twinkleFrames 700s linear infinite;
+}
+
+.twinkleMask2 {
+  background: transparent
+    url("https://wolf.drjm.co.uk/nightsky/twinkleMask2.png") repeat top center;
+  z-index: 3;
+  height: 200%;
+  animation: twinkleFrames2 300s linear infinite;
+}
+
+.clouds {
+  background: transparent url("https://wolf.drjm.co.uk/nightsky/clouds.png")
+    repeat top center;
+  z-index: 4;
+  height: 150%;
+  animation: cloudsFrames 300s linear infinite;
+}

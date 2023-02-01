@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../Styles/comp.css";
 import sound from "../../assets/Sounds/2023-01-22 182133.wav";
 import Start from "./Start";
+import { Link } from "react-router-dom";
 
 const StarWars = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -26,8 +27,10 @@ const StarWars = () => {
 
   return (
     <body className="landingpageBody">
-      <button onClick={handleClick}>Click to get to page</button>
-      <div className="landingDiv" onClick={playSound}>
+      <div className="landingDiv">
+        <Link className="linkToStartpage" to={`/home`}>
+          Click to get to page
+        </Link>
         <button onClick={() => setIsVisible(!isVisible)}>Start</button>
         <div className={`fade ${isVisible ? "visible" : ""}`}></div>
         <section className="star-wars">
@@ -69,6 +72,9 @@ const StarWars = () => {
             </p>
           </div>
         </section>
+        <div className="withSound" onClick={playSound}>
+          Play the tune
+        </div>
       </div>
     </body>
   );

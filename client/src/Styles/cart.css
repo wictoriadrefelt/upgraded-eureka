@@ -111,10 +111,8 @@
   height: 100px;
   right: 1vw;
   margin: auto;
-
   bottom: 0;
   text-align: center;
-  background-color: black;
   padding: 20px;
   color: coral;
   font-family: "arcade";
@@ -132,6 +130,11 @@
 
 .checkoutClickMe {
   font-size: 15px;
+}
+
+.checkoutClickMe:hover {
+  background-color: aqua;
+  cursor: pointer;
 }
 
 .cartContent {
