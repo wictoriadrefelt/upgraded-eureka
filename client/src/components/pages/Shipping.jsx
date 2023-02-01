@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { saveShippingInfo } from "../../actions/cartAction";
 import { Country } from "country-state-city";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, Link } from "react-router-dom";
+import "../../Styles/shipping.css";
 
 function Shipping() {
   const navigate = useNavigate();
@@ -22,13 +23,14 @@ function Shipping() {
     navigate("/confirm");
   };
   return (
-    <div>
+    <div className="shipping--main">
       <div className="container--shipping">
         <div className="box--shipping">
           <h2 className="heading-shipping">Shipping and Customer details</h2>
           <form className="form--shipping" onSubmit={shippingSubmit}>
             <div>
               <input
+                className="shippingInput"
                 type="text"
                 placeholder="Address"
                 required
@@ -38,6 +40,7 @@ function Shipping() {
             </div>
             <div>
               <input
+                className="shippingInput"
                 type="text"
                 placeholder="City"
                 required
@@ -47,6 +50,7 @@ function Shipping() {
             </div>
             <div>
               <input
+                className="shippingInput"
                 type="text"
                 placeholder="Postcode"
                 required
@@ -56,6 +60,7 @@ function Shipping() {
             </div>
             <div>
               <input
+                className="shippingInput"
                 type="text"
                 placeholder="PhoneNumber"
                 required
@@ -65,6 +70,7 @@ function Shipping() {
             </div>
             <div>
               <select
+                className="shippingInput"
                 required
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
@@ -81,11 +87,15 @@ function Shipping() {
             <input
               type="submit"
               value="Continue"
-              className="button--shipping"
+              className="shippingBtn"
               disabled={country ? false : true}
             />
           </form>
         </div>
+        <Link className="backBtnConfirmOrder" to={`/cart`}>
+          Back
+        </Link>
+        ;
       </div>
     </div>
   );
