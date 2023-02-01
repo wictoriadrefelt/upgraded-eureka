@@ -4,30 +4,112 @@
 }
 
 .confirmOrderPageMain {
-  height: 100vh;
+  height: calc(100vh - 100px);
+
   width: 100vw;
 }
 
 .confirmOrderPageContainer {
-  min-width: 300px;
-  max-width: 600px;
+  background-color: black;
+  position: absolute;
+  z-index: 10;
+  width: 500px;
   margin: auto;
+  margin-top: 100px;
   border: dashed;
   border-color: white;
   border-radius: 15px;
   display: flex;
-  justify-content: center;
+  gap: 40px;
   flex-direction: column;
   align-items: center;
   padding: 15px;
-}
-
-.successTitle {
-  color: white;
-  font-family: arcade;
+  left: 1vw;
+  right: 1vw;
+  margin-top: 100px;
 }
 
 .confirmOrderParagraph {
   color: white;
   font-family: arcade;
+  font-size: 18px;
+}
+
+.cost,
+.customerInfo {
+  color: white;
+  font-family: arcade;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  min-height: 300px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.infoCheckoutDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  column-gap: 50px;
+}
+
+.flexRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.coral {
+  color: coral;
+}
+
+.toStripeBtn {
+  background-color: transparent;
+  border: none;
+  font-family: arcade;
+  font-size: 30px;
+}
+
+.toStripeBtn:hover {
+  background-color: aqua;
+  cursor: pointer;
+}
+
+.backBtnConfirmOrder {
+  text-decoration: none;
+  color: white;
+  font-family: arcade;
+}
+
+@media (max-width: 580px) {
+  .infoCheckoutDiv {
+    flex-wrap: wrap;
+  }
+
+  .customerInfo,
+  .cost {
+    width: 90%;
+    min-height: unset;
+    gap: 10px;
+  }
+
+  .confirmOrderPageContainer {
+    width: 90%;
+    overflow-y: scroll;
+  }
+
+  .confirmOrderParagraph {
+    font-size: 13px;
+  }
+
+  .toStripeBtn {
+    font-size: 20px;
+  }
+
+  .cost,
+  .customerInfo {
+    font-size: 15px;
+  }
 }
