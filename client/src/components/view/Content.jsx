@@ -60,13 +60,12 @@ const Content = () => {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/success" element={<Success />} />
         {/*  {isAuthenticated && <Route path="/success" element={<Success />} />} */}
-        {/* React.Fragment>
-            <Route
-              path="/payment"
-              element={<ProtectedRoute path="/success" element={<Success />} />}
-            />
-          </React.Fragment>
-         */}
+        <React.Fragment>
+          <Route
+            path="/payment"
+            element={<ProtectedRoute path="/success" element={<Success />} />}
+          />
+        </React.Fragment>
       </Routes>
     </>
   );

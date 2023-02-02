@@ -13,6 +13,11 @@ const Header = () => {
   const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   console.log(user, "userAllthetime");
+  /*   if (user.role) {
+    console.log(user.role, "hej");
+  } else {
+    return;
+  } */
 
   const logoutUser = () => {
     dispatch(logout());
