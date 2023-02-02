@@ -10,7 +10,7 @@ const ConfirmOrder = () => {
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
 
-  console.log(user);
+  console.log(user.firstName);
 
   const subtotal = cartItems.reduce(
     (acc, item) => acc + item.quantity * item.product.price,

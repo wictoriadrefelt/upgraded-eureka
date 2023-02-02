@@ -21,7 +21,18 @@ const Contact = () => {
         const phone = formData.get("phone");
         const message = formData.get("message");
 
-        // Save the form data to the database or somewhere else.
+        // Send the form data to the back-end
+        fetch("http://localhost:3000/send-email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, phone, message }),
+        })
+          .then((res) => res.json())
+          .then((data) => console.log(data))
+          .catch((error) => console.error(error));
+        event.target.reset();
       };
 
       formRef.current.addEventListener("submit", handleSubmit);

@@ -1,27 +1,32 @@
-const nodeMailer = require("nodemailer");
-const dotenv = require("dotenv");
-dotenv.config();
+const express = require("express");
+const nodemailer = require("nodemailer");
+const app = express();
+app.use(express.json());
 
-/// COME BACK TO ME AND CHANGE EMAIL
-// READ NODEMAILERS DOCS
-
-const sendEmail = async (options) => {
-  const transporter = nodeMailer.createTransport({
-    host: process.env.SMPT_HOST,
-    port: process.env.SMPT_PORT,
-    service: process.env.SMPT_SERVICE,
+app.post("/send-email", (req, res) => {
+  const { name, email, phone, message } = req.body;
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
     auth: {
-      user: process.env.SMPT_MAIL,
-      pass: process.env.SMPT_PASSWORD,
+      user: "freddzone@gmail.com",
+      pass: "",
     },
   });
   const mailOptions = {
-    from: process.env.SMPT_MAIL,
-    to: options.email,
-    subject: options.subject,
-    text: options.message,
+    from: email,
+    to: "freddzone@gmail.com",
+    subject: "New Message from " + name,
+    text: "Phone: " + phone + "\nMessage: " + message,
   };
-  await transporter.sendMail(mailOptions);
-};
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      res.status(500).send(error);
+    } else {
+      res.send("Email sent: " + info.response);
+    }
+  });
+});
 
-module.exports = sendEmail;
+app.listen(3000, () => {
+  console.log("Server started on port 3000");
+});

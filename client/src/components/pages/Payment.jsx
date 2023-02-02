@@ -12,9 +12,9 @@ import {
 } from "@stripe/react-stripe-js";
 
 import axios from "axios";
-
 import { createOrder } from "../../actions/orderAction";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import "../../Styles/payment.css";
 
 const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
@@ -137,6 +137,9 @@ const Payment = () => {
             className="form--payment--button"
           />
         </form>
+        <Link className="backBtnPayment" to={`/confirm`}>
+          <div className="backBtn">Back</div>
+        </Link>
       </div>
     </div>
   );
