@@ -38,10 +38,10 @@ const Contact = () => {
             <div className="containerDiv">
               <div className="contentDiv">
                 <div className="right-side">
-                  <div className="topic-text">Kontakta oss</div>
+                  <div className="topic-text">Contact us</div>
                   <form action="#" ref={formRef}>
                     <div className="input-box">
-                      <input type="text" placeholder="Namn" name="name" />
+                      <input type="text" placeholder="Name" name="name" />
                     </div>
                     <div className="input-box">
                       <input type="text" placeholder="Email" name="email" />
@@ -49,14 +49,14 @@ const Contact = () => {
                     <div className="input-box">
                       <input
                         type="text"
-                        placeholder="Telefonnummer"
+                        placeholder="Phonenumber"
                         name="phone"
                       />
                     </div>
                     <div className="input-box message-box">
                       <input
                         type="text"
-                        placeholder="Skriv ditt meddelande här"
+                        placeholder="Write your message here"
                         name="message"
                       />
                     </div>
@@ -66,7 +66,7 @@ const Contact = () => {
                         type="submit"
                         value="Skicka meddelande"
                       >
-                        Skicka meddelande
+                        Send
                       </button>
                     </div>
                   </form>

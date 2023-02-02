@@ -10,6 +10,9 @@ const AboutUs = () => {
       <>
         <Header />
         <div className="aboutUsMain">
+          <div className="stars"></div>
+          <div className="twinkleMask"></div>
+          <div className="twinkleMask2"></div>
           <div className="aboutUsContainer">
             <h1 className="aboutUsTitle">About Us</h1>
             <p className="aboutUsParagraph">

@@ -1,0 +1,79 @@
+@font-face {
+  font-family: arcade;
+  src: url("../assets/Fonts/ARCADECLASSIC.TTF");
+}
+
+.paymentPageMain {
+  height: 100vh;
+  width: 100vw;
+}
+
+.paymentPageContainer {
+  position: absolute;
+  z-index: 10;
+  left: 1vw;
+  right: 1vw;
+  background-color: black;
+  font-family: arcade;
+  width: 500px;
+  margin: auto;
+  margin-top: 100px;
+  border: dashed;
+  border-color: white;
+  border-radius: 15px;
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  margin-top: 100px;
+}
+
+.form--payment {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 80%;
+  border-width: 2px;
+  color: white;
+}
+
+.paymentInput {
+  font-family: arcade;
+  background-color: white;
+}
+
+.form--payment--button {
+  background-color: transparent;
+  color: coral;
+  border: none;
+  font-family: arcade;
+  font-size: 22px;
+}
+
+.form--payment--button:hover {
+  cursor: pointer;
+  background-color: aqua;
+}
+
+.form--payment {
+  color: coral;
+}
+
+.payment-title {
+  font-size: 22px;
+}
+
+.payment-paragraph {
+  color: white;
+}
+
+.paymentInput {
+  height: 30px;
+  border: dashed;
+  border-radius: 5px;
+  border-color: white;
+  width: 100%;
+  color: white;
+  text-align: center;
+}

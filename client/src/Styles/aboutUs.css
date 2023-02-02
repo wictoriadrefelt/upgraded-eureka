@@ -10,12 +10,16 @@
 }
 
 .aboutUsContainer {
+  position: absolute;
+  z-index: 10;
   max-width: 600px;
   margin: auto;
+  left: 1vw;
+  right: 1vw;
   border: dashed;
   border-color: white;
   border-radius: 15px;
-  margin-top: 140px;
+  margin-top: 50px;
   padding: 30px;
   min-width: 270px;
 }
