@@ -5,7 +5,6 @@
 
 .confirmOrderPageMain {
   height: calc(100vh - 100px);
-
   width: 100vw;
 }
 
@@ -102,9 +101,6 @@
 
   .cost {
     margin-top: 20px;
-  }
-
-  .toStripeBtn {
   }
 
   .cost,

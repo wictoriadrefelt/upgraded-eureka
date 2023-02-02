@@ -1,5 +1,4 @@
 import React, { useRef, Typography } from "react";
-
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -13,7 +12,7 @@ import {
 import axios from "axios";
 
 import { createOrder } from "../../actions/orderAction";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, Link } from "react-router-dom";
 import "../../Styles/payment.css";
 
 const Payment = () => {
@@ -138,6 +137,9 @@ const Payment = () => {
             className="form--payment--button"
           />
         </form>
+        <Link className="backBtnPayment" to={`/confirm`}>
+          <div className="backBtn">Back</div>
+        </Link>
       </div>
     </div>
   );
