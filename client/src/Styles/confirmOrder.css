@@ -100,16 +100,15 @@
     overflow-y: scroll;
   }
 
-  .confirmOrderParagraph {
-    font-size: 13px;
+  .cost {
+    margin-top: 20px;
   }
 
   .toStripeBtn {
-    font-size: 20px;
   }
 
   .cost,
   .customerInfo {
-    font-size: 15px;
+    font-size: 20px;
   }
 }

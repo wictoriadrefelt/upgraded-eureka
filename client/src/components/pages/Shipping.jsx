@@ -26,7 +26,7 @@ function Shipping() {
     <div className="shipping--main">
       <div className="container--shipping">
         <div className="box--shipping">
-          <h2 className="heading-shipping">Shipping and Customer details</h2>
+          <h2 className="heading-shipping">Enter your credentials</h2>
           <form className="form--shipping" onSubmit={shippingSubmit}>
             <div>
               <input

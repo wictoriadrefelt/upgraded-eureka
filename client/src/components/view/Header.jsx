@@ -17,7 +17,7 @@ const Header = () => {
           <img className="lives" src={lives} alt="" />
           <img className="lives" src={lives} alt="" />
         </div>
-        <Link className="logoDiv headerDiv" to={`/`}>
+        <Link className="logoDiv headerDiv" to={`/home`}>
           <img className="logoImg" src={logo} alt="" />
         </Link>
         <div className="cartDiv headerDiv">
