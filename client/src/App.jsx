@@ -3,10 +3,10 @@ import Layout from "./components/view/Layout.jsx";
 import React, { useState, useRef, useEffect } from "react";
 import Modal from "./components/view/Modal.jsx";
 import { useCookies } from "react-cookie";
-import "./Styles/App.css";
+import "./App.css";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import backgroundSound from "./assets/Sounds/backgroundsound.wav";
+import backgroundSound from "./assets/Sounds/backg.mp3";
 
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
@@ -43,6 +43,7 @@ function App() {
       audioRef.current.pause();
     } else {
       audioRef.current.play();
+      audioRef.current.volume = 0.5;
     }
   };
 
