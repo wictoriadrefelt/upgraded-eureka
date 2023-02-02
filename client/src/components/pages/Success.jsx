@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
 /* import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js"; */
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../Styles/success.css";
 
 const Success = ({ success }) => {
+  const navigate = useNavigate();
   /*   if (!success) {
     return <div>Loading...</div>;
+
   } */
+
+  const handleClick = () => {
+    window.location.replace("/home");
+    removeLocalStorage();
+  };
   document.title = "IneedIT Success";
 
   return (
@@ -18,11 +25,9 @@ const Success = ({ success }) => {
           Thank you for choosing to shop with us. We appreciate your business
           and hope you are completely satisfied with your purchase.
         </p>
-        <Link className="successHomeBtn" to={`/home`}>
-          <h3 className="successParagraph">
-            Click here to get to the startpage
-          </h3>
-        </Link>
+        <h3 onClick={handleClick} className="successParagraph">
+          Click here to get to the startpage
+        </h3>
       </div>
     </div>
   );

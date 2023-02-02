@@ -10,10 +10,10 @@ import {
 } from "@stripe/react-stripe-js";
 
 import axios from "axios";
-
 import { createOrder } from "../../actions/orderAction";
-import { Navigate, useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../../Styles/payment.css";
+
 
 const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
