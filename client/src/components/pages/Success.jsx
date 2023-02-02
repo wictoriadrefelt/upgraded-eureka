@@ -12,7 +12,8 @@ const Success = ({ success }) => {
 
   const handleClick = () => {
     window.location.replace("/home");
-    removeLocalStorage();
+    localStorage.removeItem("cartItems");
+    localStorage.clear();
   };
   document.title = "IneedIT Success";
 
