@@ -46,7 +46,7 @@ const StarWars = () => {
             </p>
 
             <p className="landingpageParagraph">
-              After a week in school they were starten taken advantage of, and
+              After a week in school they started being taken advantage of, and
               time after time they were to fall victims for devious and evil
               exposures. This was by the hand of the evil generals named Victor,
               Henrik and Johanna whoose only object in life was to deminish and
@@ -61,13 +61,13 @@ const StarWars = () => {
             </p>
 
             <p className="landingpageParagraph">
-              Two students had enough, lifted their arms and took up the fight
+              Two students had enough, lifted their swords and took up the fight
               against the evil empire.
             </p>
             <p className="landingpageParagraph">
-              To late? Perhaps.. But the fight should (hopefully) echo in
+              Too late? Perhaps.. But the fight should (hopefully) echo in
               eternity and help future generations of students to have a less
-              degrading time at the school and leave them a chance to beat the
+              degrading time at school and to leave them a chance to beat the
               evil generals at their own game
             </p>
           </div>

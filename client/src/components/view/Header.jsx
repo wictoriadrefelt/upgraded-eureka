@@ -9,6 +9,17 @@ import contactPhone from "../../assets/Bg/phone.png";
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
+
+  /* const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+ */
   return (
     <>
       <div className="headerContainer">
@@ -37,9 +48,15 @@ const Header = () => {
         </div>
         <div className="headerDiv">
           <div className="header-column headerDiv">
+            {/*         {isLoggedIn ? ( */}
             <Link className="" to={`/login/`}>
               <div className="about">Login</div>
             </Link>
+            {/* ) : ( */}
+            <Link className="" to={`/login/`}>
+              <div className="about">Logout</div>
+            </Link>
+            {/* )} */}
             <Link className="" to={`/aboutus/`}>
               <div className="about">AboutUs</div>
             </Link>
@@ -54,3 +71,20 @@ const Header = () => {
 };
 
 export default Header;
+
+/* return (
+  <div>
+  
+      <div>
+        <p>Welcome User</p>
+        <button onClick={handleLogout}>Logout</button>
+      </div>
+   
+      <div>
+        <p>Please Login</p>
+        <button onClick={handleLogin}>Login</button>
+      </div>
+  
+  </div>
+);
+ */

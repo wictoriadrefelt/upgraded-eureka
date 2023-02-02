@@ -6,6 +6,7 @@ import { useCookies } from "react-cookie";
 import "./Styles/App.css";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import backgroundSound from "./assets/Sounds/backgroundsound.wav";
 
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
@@ -33,9 +34,38 @@ function App() {
     setIsAccepted(false);
   }
 
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
+
+  const handlePlayPause = () => {
+    setIsPlaying(!isPlaying);
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+  };
+
+  const handleUserInteraction = () => {
+    audioRef.current.muted = false;
+  };
+
   return (
     <BrowserRouter>
       <div>
+        <span className="play" onClick={handleUserInteraction}>
+          <audio
+            src={backgroundSound}
+            autoPlay={isPlaying}
+            loop={isPlaying}
+            ref={audioRef}
+            volume={0}
+          />
+          <button className="funTimes" onClick={handlePlayPause}>
+            {isPlaying ? "Pause" : "Play"}
+          </button>
+        </span>
+
         {
           /* ! */ isAccepted && (
             <div className="cookie-accept">

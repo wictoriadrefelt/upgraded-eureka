@@ -51,7 +51,7 @@ const Content = () => {
           )}
             
         </React.Fragment>
-        <Route path="/home" element={<Start />} />
+        <Route path="*" element={<Start />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />

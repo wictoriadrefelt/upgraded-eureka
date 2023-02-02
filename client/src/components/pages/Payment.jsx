@@ -137,8 +137,8 @@ const Payment = () => {
             className="form--payment--button"
           />
         </form>
-        <Link className="backBtnPayment" to={`/confirm`}>
-          <div className="backBtn">Back</div>
+        <Link to={`/confirm`}>
+          <div className="backBtnPayment">Back</div>
         </Link>
       </div>
     </div>
