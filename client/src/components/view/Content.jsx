@@ -58,7 +58,8 @@ const Content = () => {
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/confirm" element={<ConfirmOrder />} />
         <Route path="/aboutus" element={<AboutUs />} />
-        {isAuthenticated && <Route path="/success" element={<Success />} />}
+        <Route path="/success" element={<Success />} />
+        {/*  {isAuthenticated && <Route path="/success" element={<Success />} />} */}
         {/* React.Fragment>
             <Route
               path="/payment"

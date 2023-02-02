@@ -35,7 +35,7 @@ const Header = () => {
             {`0000`}
             {cartItems
               ? cartItems.reduce((accum, item) => accum + item.quantity, 0)
-              : null}
+              : "0"}
           </div>
           <div className="headerDiv">
             <div className="cartLoginDiv headerDiv">
