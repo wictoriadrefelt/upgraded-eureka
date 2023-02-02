@@ -52,9 +52,7 @@ const Cart = () => {
         <div className="cartPageMain">
           <div className="toCheckout">
             <TermsAndConditions onAccept={handleAccept}>
-              <div className="visible">
-                {/* <button disabled={!accepted}>Proceed to Checkout</button> */}
-              </div>
+              <div className="visible"></div>
             </TermsAndConditions>
             <p className="checkoutBtn">Insert Coins To Begin</p>
             <br />

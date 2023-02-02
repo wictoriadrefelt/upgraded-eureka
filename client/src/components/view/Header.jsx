@@ -17,7 +17,7 @@ const Header = () => {
   const logoutUser = () => {
     dispatch(logout());
   };
-  
+
   return (
     <>
       <div className="headerContainer">
@@ -46,7 +46,6 @@ const Header = () => {
         </div>
         <div className="headerDiv">
           <div className="header-column headerDiv">
-            {/*         {isLoggedIn ? ( */}
             <Link className="" to={`/login/`}>
               {user ? (
                 <div onClick={logoutUser} className="about">
@@ -56,11 +55,6 @@ const Header = () => {
                 <div className="about">Login</div>
               )}
             </Link>
-            {/* ) : ( */}
-            <Link className="" to={`/login/`}>
-              <div className="about">Logout</div>
-            </Link>
-            {/* )} */}
             <Link className="" to={`/aboutus/`}>
               <div className="about">AboutUs</div>
             </Link>
