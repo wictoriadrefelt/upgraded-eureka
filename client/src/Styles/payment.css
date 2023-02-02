@@ -68,6 +68,13 @@
   color: white;
 }
 
+.backBtnPayment {
+  text-decoration: none;
+  font-family: arcade;
+  color: white;
+  font-size: 18px;
+}
+
 .paymentInput {
   height: 30px;
   border: dashed;
@@ -76,4 +83,12 @@
   width: 100%;
   color: white;
   text-align: center;
+}
+
+@media (max-width: 800px) {
+  .paymentPageContainer {
+    width: 80vw;
+    padding: 0;
+    padding-bottom: 15px;
+  }
 }
