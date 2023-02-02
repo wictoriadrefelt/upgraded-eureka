@@ -6,9 +6,19 @@ import cartLogo from "../../assets/Bg/shopping_cart_PNG73.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import contactPhone from "../../assets/Bg/phone.png";
+import { logout } from "../../actions/userAction";
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  console.log(user, "userAllthetime");
+
+  const logoutUser = () => {
+    console.log(user, "hejHEJEJJEJEEHJE");
+    dispatch(logout());
+    console.log("Logout Successfully");
+  };
   return (
     <>
       <div className="headerContainer">
@@ -25,7 +35,7 @@ const Header = () => {
             {`0000`}
             {cartItems
               ? cartItems.reduce((accum, item) => accum + item.quantity, 0)
-              : null}
+              : "0"}
           </div>
           <div className="headerDiv">
             <div className="cartLoginDiv headerDiv">
@@ -38,7 +48,13 @@ const Header = () => {
         <div className="headerDiv">
           <div className="header-column headerDiv">
             <Link className="" to={`/login/`}>
-              <div className="about">Login</div>
+              {user ? (
+                <div onClick={logoutUser} className="about">
+                  Logout
+                </div>
+              ) : (
+                <div className="about">Login</div>
+              )}
             </Link>
             <Link className="" to={`/aboutus/`}>
               <div className="about">AboutUs</div>

@@ -15,9 +15,12 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import Success from "../pages/Success";
 import AboutUs from "../pages/aboutUs";
+import ProtectedRoute from "../view/ProtectedRoute";
+import { useSelector } from "react-redux";
 
 const Content = () => {
   const [stripeApiKey, setStripeApiKey] = useState("");
+  const { isAuthenticated, user } = useSelector((state) => state.user);
 
   async function getStripeApiKey() {
     const { data } = await axios.get(
@@ -34,22 +37,17 @@ const Content = () => {
   return (
     <>
       <Routes>
-         
         <React.Fragment>
-              
           {stripeApiKey && (
             <Route
               path="/payment"
               element={
                 <Elements stripe={loadStripe(stripeApiKey)}>
-                              
                   <Payment />
-                            
                 </Elements>
               }
             />
           )}
-            
         </React.Fragment>
         <Route path="/home" element={<Start />} />
         <Route path="/product/:id" element={<ProductDetails />} />
@@ -61,6 +59,14 @@ const Content = () => {
         <Route path="/confirm" element={<ConfirmOrder />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/success" element={<Success />} />
+        {/*  {isAuthenticated && <Route path="/success" element={<Success />} />} */}
+        {/* React.Fragment>
+            <Route
+              path="/payment"
+              element={<ProtectedRoute path="/success" element={<Success />} />}
+            />
+          </React.Fragment>
+         */}
       </Routes>
     </>
   );
