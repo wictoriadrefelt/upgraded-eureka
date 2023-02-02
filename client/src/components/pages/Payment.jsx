@@ -13,7 +13,7 @@ import {
 import axios from "axios";
 
 import { createOrder } from "../../actions/orderAction";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
