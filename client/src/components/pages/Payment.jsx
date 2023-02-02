@@ -1,4 +1,6 @@
-import React, { useRef, Typography } from "react";
+import React, { useRef, useEffect } from "react";
+import "../../Styles/payment.css";
+
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -13,7 +15,6 @@ import axios from "axios";
 import { createOrder } from "../../actions/orderAction";
 import { useNavigate, Link } from "react-router-dom";
 import "../../Styles/payment.css";
-
 
 const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
@@ -81,31 +82,30 @@ const Payment = () => {
           },
         },
       });
-
       if (!result) {
         payBtn.current.disabled = false;
-        console.log("error");
       } else {
-        if (result) {
-          console.log(result);
+        if (result.paymentIntent.status === "succeeded") {
           order.paymentInfo = {
             id: result.paymentIntent.id,
             status: result.paymentIntent.status,
           };
-        }
-        if (result) {
+
           dispatch(createOrder(order));
 
           navigate("/success");
+          console.log("successs");
         } else {
-          console.log("Failed");
+          console.log("no");
         }
       }
     } catch (error) {
       payBtn.current.disabled = false;
-      console.log(error);
+      alert.error(error.response.data.message);
     }
   };
+
+  useEffect(() => {}, [dispatch]);
 
   return (
     <div className="paymentPageMain">
