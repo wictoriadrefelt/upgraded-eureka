@@ -18,9 +18,9 @@ function Shipping() {
 
   const shippingSubmit = (e) => {
     e.preventDefault();
-
     dispatch(saveShippingInfo({ address, city, country, postcode, phoneNr }));
     navigate("/confirm");
+    e.reset();
   };
   return (
     <div className="shipping--main">
