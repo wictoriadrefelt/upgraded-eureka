@@ -108,26 +108,36 @@ const Payment = () => {
   };
 
   return (
-    <div>
-      <form className="form--payment" onSubmit={(e) => submitHandler(e)}>
-        <div>
-          <CardNumberElement className="paymentInput" />
-        </div>
-        <div>
-          <CardExpiryElement className="paymentInput" />
-        </div>
-        <div>
-          <CardCvcElement className="paymentInput" />
-        </div>
-
-        <div>{orderInfo && orderInfo.totalPrice}</div>
-        <input
-          type="submit"
-          value={`Click me`}
-          ref={payBtn}
-          className="form--payment--button"
-        />
-      </form>
+    <div className="paymentPageMain">
+      <div className="stars"></div>
+      <div className="twinkleMask"></div>
+      <div className="twinkleMask2"></div>
+      <div className="paymentPageContainer">
+        <form className="form--payment" onSubmit={(e) => submitHandler(e)}>
+          <h3 className="payment-title">Enter your cards credentials</h3>
+          <div>
+            <p className="payment-paragraph">Okay so enter your cardnumber</p>
+            <CardNumberElement className="paymentInput" />
+          </div>
+          <div>
+            <p className="payment-paragraph">And its dates</p>
+            <CardExpiryElement className="paymentInput" />
+          </div>
+          <div>
+            <p className="payment-paragraph">And the three on the back</p>
+            <CardCvcElement className="paymentInput" />
+          </div>
+          <div className="payment-title">
+            {orderInfo && orderInfo.totalPrice}
+          </div>
+          <input
+            type="submit"
+            value={`Click me`}
+            ref={payBtn}
+            className="form--payment--button"
+          />
+        </form>
+      </div>
     </div>
   );
 };
