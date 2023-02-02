@@ -6,6 +6,8 @@ import {
   REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAIL,
 } from "../constants/userActionTypes";
 import axios from "axios";
 
@@ -46,5 +48,16 @@ export const register = (userData) => async (dispatch) => {
       type: REGISTER_USER_FAIL,
       payload: error.response.data.message,
     });
+  }
+};
+
+export const logout = () => async (dispatch) => {
+  try {
+    await axios.get(`http://localhost:3001/api/v1/logout`);
+    console.log("logged out");
+
+    dispatch({ type: LOGOUT_SUCCESS });
+  } catch (error) {
+    dispatch({ type: LOGOUT_FAIL, payload: error.response.data.message });
   }
 };
