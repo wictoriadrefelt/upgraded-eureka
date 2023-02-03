@@ -10,7 +10,7 @@
   height: calc(100vh - 100px);
   width: 100vw;
   background: url("../assets/Bg/325108274_560738142629640_6490069727382729819_n.png");
-  background-size: 99vw 88vh;
+  background-size: 100vw 88vh;
   background-repeat: no-repeat;
 }
 
@@ -59,6 +59,10 @@
   border-width: 12px;
   padding: 5px 10px;
   margin: 2px;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  gap: 25px;
 }
 
 .singletitle {
