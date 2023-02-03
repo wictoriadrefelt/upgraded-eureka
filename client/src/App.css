@@ -8,7 +8,6 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -30,6 +29,6 @@ a {
   z-index: 99999;
   top: 0px;
   position: fixed;
-  background-color: transparent;
+  background-color: rgba(17, 17, 17, 255);
   left: 0;
 }
